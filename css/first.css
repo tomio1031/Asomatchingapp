@@ -1,0 +1,64 @@
+body{
+    background-color: #80A8FF;
+}
+
+.logo{
+    text-align:center;
+    position:relative;
+    top:100px;
+}
+
+.logoimg{
+    width:300px;
+    height:150px;
+}
+
+.sakusei-div{
+    text-align: center;
+    position:relative;
+    top:150px;
+}
+
+.acount-sakusei{
+    border: 3px solid #eaf2fc;
+    border-radius: 100px;
+    width: 170px;
+    padding: 5px;
+    box-sizing: border-box;
+    background: #80A8FF;
+    color: #eaf2fc;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 0;
+	transition:0.5s;
+}
+
+.acount-sakusei:hover {
+	color: #80a8ff;
+	background: #eaf2fc;
+}
+
+.login-div{
+    text-align: center;
+    position:relative;
+    top:160px;
+}
+
+.login{
+    border: 3px solid #eaf2fc;
+    border-radius: 100px;
+    width: 170px;
+    padding: 5px;
+    box-sizing: border-box;
+    background: #80A8ff;
+    color: #eaf2fc;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 0;
+	transition:0.5s;
+}
+
+.login:hover{
+    color: #80a8ff;
+	background: #eaf2fc;
+}
