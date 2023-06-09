@@ -7,26 +7,15 @@ body{
     height:60px;
 }
 
-.Your-div{
-/* 	width:25px;
-    text-align: left;
-    position:relative;
-    top:500px; */
-}
-
 .Your{
-	width:25px;
-    text-align: left;
-    position:relative;
-    top:500px;
-    border: 3px solid #80A8ff;
+    border: 3px solid #eaf2fc;
     border-radius: 100px;
-    padding: 25px;
+    /* padding: 25px; */
     box-sizing: border-box;
     background: #eaf2fc;
     color: #80A8ff;
     text-decoration: none;
-    text-align: center;
+    text-align: left;
     margin: 10px 0;
 	transition:0.5s;
 }
@@ -34,13 +23,6 @@ body{
 .Your:hover {
 	color: #eaf2fc;
 	background: #80A8ff;
-}
-
-.List-div{
-	idth:25px;
-    text-align: center;
-    position:relative;
-    top:500px;
 }
 
 .List{
@@ -61,12 +43,6 @@ body{
 	background: #80A8ff;
 }
 
-.My-div{
-    text-align: right;
-    position:relative;
-    top:500px;
-}
-
 .My{
     border: 3px solid #80A8ff;
     border-radius: 100px;
@@ -75,7 +51,7 @@ body{
     background: #eaf2fc;
     color: #80A8ff;
     text-decoration: none;
-    text-align: center;
+    text-align: right;
     margin: 10px 0;
 	transition:0.5s;
 }
@@ -83,4 +59,19 @@ body{
 .My:hover{
     color: #eaf2fc;
 	background: #80A8ff;
+}
+
+.bottom-menu {
+    position:relative;
+    top:520px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+  
+  .bottom-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    margin: 0 20px;
 }
