@@ -1,0 +1,398 @@
+
+.return {
+    margin-left: 10%; 
+    font-size: 35px;
+    text-decoration: none;
+}
+
+.return:hover {
+    text-decoration: none;
+  }
+
+.title {
+    text-align: center; 
+    font-size: 25px;
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+.return {
+    text-decoration: none;
+    color: black;
+}
+
+.cp_iptxt {
+	position: relative;
+	width: 200px;
+	/* margin: 40px 3%;
+    text-align: center; */
+    text-align: center;
+     margin: 0 auto;
+}
+.cp_iptxt input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	letter-spacing: 1px;
+	text-align: center;
+  padding-left: 0;
+	/* padding-left: 4em; */
+}
+.cp_iptxt input[type='text']:focus {
+	outline: none;
+}
+.ef {
+	padding: 4px 0;
+	border: 0;
+	border-bottom: 2px solid #1b2538;
+	background-color: transparent;
+}
+.ef ~ .focus_line {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	transition: 0.4s;
+	background-color: #8860e5;
+}
+.ef ~ .focus_line {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	transition: 0.4s;
+	background-color: #8860e5;
+}
+.ef:focus ~ .focus_line,
+.cp_iptxt.ef ~ .focus_line {
+	left: 0;
+	width: 100%;
+	transition: 0.4s;
+}
+.ef ~ label {
+	position: absolute;
+	z-index: -1;
+	top: 4px;
+	left: 0;
+	width: 100%;
+	transition: 0.3s;
+	letter-spacing: 0.5px;
+	color: #aaaaaa;
+}
+.ef:focus ~ label, .cp_iptxt.ef ~ label {
+	font-size: 12px;
+	top: -16px;
+	transition: 0.3s;
+	color: #8860e5;
+}
+
+
+.next {
+    display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #07bdff 0%, #3559f7 100%);
+  transition: .4s;
+  width: 170px;
+  height: 35px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  /* position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+.next2 {
+	text-align: center;
+}
+
+/* #next:hover {
+    background-image: linear-gradient(45deg, #07bdff 0%, #3559f7 100%);
+} */
+/* ↑マウスを上に乗せたときに色を変換するコード */
+
+/*↓ 表示するかどうか選択するボタンのデザイン */
+.radio-group input[type="radio"] {
+	display: none;
+	align-items: center; /* 要素を垂直方向に中央揃え */
+	
+  }
+  
+  .radio-group label {
+	display: inline-block;
+	cursor: pointer;
+	
+  }
+  
+  .radio-group label img {
+	width: 25px; /* 画像の適切なサイズを指定 */
+	height: 25px; /* 画像の適切なサイズを指定 */
+	margin-left: 30%;
+	border-radius: 90%;
+	border: 4px solid transparent;
+	transition: border-color 0.3s ease;
+	margin-top: 23%;
+  }
+  
+  .radio-group input[type="radio"]:checked + label img {
+	border-color: grey; /* 選択された画像の枠色を指定 */
+  }
+
+  .caveat {
+	display: flex;
+  	justify-content: center; /* 水平方向の中央揃え */
+	  text-align: center; /* テキストを中央揃え */
+	  color: rgb(173, 166, 166);
+	font-size: 10px;
+	margin-top: 3%;
+	margin-bottom: 3%;
+  }
+
+  .kyoumi {
+	display: flex;
+  	justify-content: center; /* 水平方向の中央揃え */
+	  text-align: center; /* テキストを中央揃え */
+	  color: rgb(173, 166, 166);
+	  margin-top: 3%;
+	margin-bottom: 3%;
+	font-size: 10px;
+  }
+
+  .nokaigyou {
+	display: flex;
+	justify-content: center; /* 水平方向の中央揃え */
+	align-items: center; /* 要素を垂直方向に中央揃え */
+	  text-align: center; /* テキストを中央揃え */
+  }
+  
+  .sentaku {
+	font-size: 20px;
+	color: rgb(116, 108, 108);
+  }
+/* ↓セレクトボックスデザイン */
+  .selectbox-002 {
+    position: relative;
+	
+}
+
+.selectbox-002::before,
+.selectbox-002::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox-002::before {
+    right: 0;
+    display: inline-block;
+    width: 2.8em;
+    height: 2.8em;
+    border-radius: 0 25px 25px 0;
+    background-color: #a165fb;
+    content: '';
+}
+
+.selectbox-002::after {
+    position: absolute;
+    top: 50%;
+    right: 1.4em;
+    transform: translate(50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+    content: '';
+}
+
+.selectbox-002 select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    padding: .4em 3.6em .4em .8em;
+    border: 2px solid #a165fb;
+    border-radius: 25px;
+    color: #000000;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.selectbox-002 select:focus {
+    outline: 1px solid #a165fb;
+}
+
+.select2 {
+	text-align: center;
+}
+/* ↑セレクトボックスデザイン（性別） */
+
+/* ↓モーダルデザイン（カテゴリー） */
+.modal_wrap input {
+	display: none;
+  }
+  
+  .modal_overlay {
+	display: flex;
+	justify-content: center;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	opacity: 0;
+	transition: opacity 0.5s, transform 0s 0.5s;
+	transform: scale(0);
+  }
+  
+  .modal_trigger {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+  }
+  
+  .modal_content {
+	  align-self: center;
+	  width: 60%;
+	  padding: 30px 30px 15px;
+	  box-sizing: border-box;
+	  background: #fff;
+	  line-height: 1.4em;
+	  transition: 0.5s;
+  }
+  
+  .modal_content p {
+	padding-top: 0;
+  }
+  
+  .close_button {
+	position: absolute;
+	top: 14px;
+	right: 16px;
+	font-size: 24px;
+	cursor: pointer;
+  }
+  
+  .modal_wrap input:checked ~ .modal_overlay {
+	opacity: 1;
+	transform: scale(1);
+	transition: opacity 0.5s;
+  }
+  
+  .modal_wrap input:checked ~ .modal_overlay .modal_content {
+	transform: translateY(20px);
+  }
+  
+  .open_button {
+	 color: #4f96f6;
+	  background-color: #eeeeee;
+	  font-weight: bold;
+	  text-align: center;
+	  cursor :pointer;
+	  transition: all 0.3s;
+	  display: block;
+	  margin-top: 40px;
+	  margin-bottom: 1px;
+	  padding: 12px 2px;
+	  max-width:300px;
+	  text-decoration: none;
+  }
+  
+  .open-button:active {
+	/*ボタンを押したとき*/
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);/*下に動く*/
+  
+  }
+  
+  /*アイコンを表示*/
+  .open-button:after {
+  font-family: "Font Awesome 5 Free";
+	content: "\f2d0";
+	  padding-left: 8px;
+  }
+  
+  /*ラベルホバー時*/
+  .open-button:hover {
+	color: #FFFFFF;
+	background-color: #4f96f6;
+	transition: .6s;
+  }
+  
+  .modal_title2 {
+	font-size: 1.5em;
+	  position: relative;
+	  overflow: hidden;
+	padding-bottom: 10px;
+	margin-top:0;
+	margin-bottom: 0;
+  }
+  
+  .modal_title2::before,
+  .modal_title2::after{
+	  content: "";
+	  position: absolute;
+	  bottom: 0;
+  }
+  
+  /* h2 プライマリカラー*/
+  .modal_title2:before{
+	  border-bottom: 4px solid #6bb6ff;
+	  width: 100%;
+  }
+  /* h2 セカンダリカラー*/
+  .modal_title2:after{
+	  border-bottom: 4px solid #c8e4ff;
+	  width: 100%;
+  }
+/* ↑モーダルデザイン */
+
+/* ↓モーダルの中身のデザイン */
+/* ラジオボタン02 */
+button {
+	width: 140px;
+	height: 45px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000000;
+	background-color: rgba(187, 187, 187, 0.5);
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	margin-top: 0.5%;
+	margin-bottom: 0.5%;
+	}
+  
+  button:hover {
+	background-color: #2EE59D;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+  }
+
+  button:active,
+  button:focus {
+	background-color: #2EE59D;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+}
+
+
+/* ↑モーダルの中身のデザイン */

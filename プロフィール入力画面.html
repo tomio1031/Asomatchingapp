@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/プロフィール入力画面style.css">
+    <title>学籍番号入力画面</title>
+    <script>
+        var buttons = document.querySelectorAll('button');
+
+            buttons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                // すべてのボタンから選択状態を解除する
+                buttons.forEach(function(btn) {
+                btn.classList.remove('selected');
+                });
+
+                // クリックされたボタンに選択状態を追加する
+                this.classList.add('selected');
+            });
+            });
+
+    </script>
+</head>
+<body>
+    <div class="">
+        <a class="return" href="">
+                ←
+        </a>
+            <div class="title">
+                学籍番号
+            </div>
+            <div class="cp_iptxt">
+                <input class="ef" type="text" placeholder="">
+                <!-- <label>お名前</label> -->
+                <span class="focus_line"></span>
+            </div>
+            <div class="title">
+                名前
+            </div>
+            <div class="cp_iptxt">
+                <input class="ef" type="text" placeholder="">
+                <!-- <label>お名前</label> -->
+                <span class="focus_line"></span>
+            </div>
+            <p class="caveat">
+                プロフィールに表示されます。<br>
+                後から変更することはできません。
+            </p>
+            <div class="title">
+                年齢
+            </div>
+            <div class="cp_iptxt">
+                <input class="ef" type="text" placeholder="">
+                <!-- <label>お名前</label> -->
+                <span class="focus_line"></span>
+            </div>
+            <p class="caveat">
+                プロフィールに表示されます。<br>
+                後から変更することはできません。
+            </p>
+        <div class="nokaigyou">
+            <p class="sentaku">表示しますか？</p>
+            <!-- 表示するかどうかの画像 -->
+            <div class="radio-group">
+                <input type="radio" name="option" id="option1" value="option1">
+                <label for="option1">
+                  <img src="img\yes.png" alt="Option 1">
+                </label>
+                
+                <input type="radio" name="option" id="option2" value="option2">
+                <label for="option2">
+                  <img src="img\no.png" alt="Option 2">
+                </label>
+            </div>
+        </div>
+                <div class="title">
+                    性別
+                </div>
+                <div class="select2">
+                    <label class="selectbox-002">
+                        <select>
+                            <option value="">選択してください</option>
+                            <option value="男性">男性</option>
+                            <option value="女性">女性</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </label>
+                </div>
+              <p class="caveat">
+                プロフィールに表示されます。<br>
+                後から変更することはできません。
+            </p>
+        <div class="nokaigyou">
+              <p class="sentaku">表示しますか？</p>
+            <!-- 表示するかどうかの画像 -->
+            <div class="radio-group">
+                <input type="radio" name="option1" id="option3" value="option3">
+                <label for="option3">
+                  <img src="img\yes.png" alt="Option 3">
+                </label>
+                
+                <input type="radio" name="option1" id="option4" value="option4">
+                <label for="option4">
+                  <img src="img\no.png" alt="Option 4">
+                </label>
+            </div>
+        </div>
+            <div class="title">
+                パスワード
+            </div>
+            <div class="cp_iptxt">
+                <input class="ef" type="text" placeholder="">
+                <!-- <label>お名前</label> -->
+                <span class="focus_line"></span>
+            </div>
+            <div class="title">
+                興味
+            </div>
+            <div class="modal_wrap">
+                <input id="trigger" type="checkbox">
+                    <div class="modal_overlay">
+                        <label for="trigger" class="modal_trigger"></label>
+                        <div class="modal_content">
+                            <label for="trigger" class="close_button">✖️</label>
+                            <!-- <p class="modal_title2">カテゴリーを表示</p>
+                            <p>ああああああああああああああああああああああああああ</p> -->
+                            <div>
+                                <button id="option1">漫画</button>
+                                <button id="option2">ジャニーズ</button>
+                                <button id="option3">居酒屋</button>
+                                <button id="option4">水族館</button>
+                                <button id="option5">温泉</button>
+                                <button id="option6">バスケ</button>
+                                <button id="option7">漫画</button>
+                                <button id="option8">ジャニーズ</button>
+                                <button id="option9">居酒屋</button>
+                                <button id="option10">水族館</button>
+                                <button id="option11">温泉</button>
+                                <button id="option12">バスケ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <center>
+                <label for="trigger" class="open_button">カテゴリーを表示</label>
+                </center>
+            <p class="kyoumi">
+                あなたの興味や好きなこと、<br>情熱を持っている
+                ことをプロフィールに追加しよう。
+            </p>
+            <div class="next2">
+                <a href="">
+                <button  class="next">
+                        続ける
+                </button>
+                </a>
+            </div>
+    </div>
+</body>
+</html>
