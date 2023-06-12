@@ -1,0 +1,77 @@
+body{
+    background-color: #eaf2fc;
+}
+
+.logoimg{
+    width:120px;
+    height:60px;
+}
+
+.Your{
+    border: 3px solid #eaf2fc;
+    border-radius: 100px;
+    /* padding: 25px; */
+    box-sizing: border-box;
+    background: #eaf2fc;
+    color: #80A8ff;
+    text-decoration: none;
+    text-align: left;
+    margin: 10px 0;
+	transition:0.5s;
+}
+
+.Your:hover {
+	color: #eaf2fc;
+	background: #80A8ff;
+}
+
+.List{
+    border: 3px solid #80A8ff;
+    border-radius: 100px;
+    padding: 25px;
+    box-sizing: border-box;
+    background: #eaf2fc;
+    color: #80A8ff;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 0;
+	transition:0.5s;
+}
+
+.List:hover{
+    color: #eaf2fc;
+	background: #80A8ff;
+}
+
+.My{
+    border: 3px solid #80A8ff;
+    border-radius: 100px;
+    padding: 25px;
+    box-sizing: border-box;
+    background: #eaf2fc;
+    color: #80A8ff;
+    text-decoration: none;
+    text-align: right;
+    margin: 10px 0;
+	transition:0.5s;
+}
+
+.My:hover{
+    color: #eaf2fc;
+	background: #80A8ff;
+}
+
+.bottom-menu {
+    position:relative;
+    top:520px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+  
+  .bottom-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    margin: 0 20px;
+}
