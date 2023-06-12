@@ -1,0 +1,52 @@
+body{
+    background-color: #ffffff;
+}
+
+.logo{
+
+    top:10000px;
+}
+
+.logoimg{
+    width: 150px;
+    height:75px;
+}
+
+
+  
+.profile-list{
+    display: flex;
+    justify-content: center;
+    line-height: 650px;
+}
+
+.profile-list{
+    border-bottom: 8px solid rgba(168, 208, 249, 0.425);
+    padding-bottom: 1px;
+    
+}
+
+.login-div{
+    text-align: center;
+    position:relative;
+    top:160px;
+}
+
+.login{
+    border: 3px solid #eaf2fc;
+    border-radius: 100px;
+    width: 170px;
+    padding: 5px;
+    box-sizing: border-box;
+    background: #80A8ff;
+    color: #eaf2fc;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 0;
+	transition:0.5s;
+}
+
+.login:hover{
+    color: #80a8ff;
+	background: #eaf2fc;
+}
