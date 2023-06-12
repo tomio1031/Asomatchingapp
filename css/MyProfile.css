@@ -50,3 +50,18 @@ body{
     color: #80a8ff;
 	background: #eaf2fc;
 }
+
+.bottom-menu {
+    position:relative;
+    top:520px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+  
+  .bottom-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    margin: 0 20px;
+}
