@@ -4,7 +4,10 @@ body{
 
 .logo{
 
-    top:10000px;
+    top:100px;
+    width: 0px;
+    height: 0px;
+
 }
 
 .logoimg{
@@ -12,12 +15,22 @@ body{
     height:75px;
 }
 
-
+.gear{
+    margin-left: auto;
+    width: 70px;
+    height: 30px;
+	margin-top :-10px
+  
+}
   
 .profile-list{
+	position: relative; 
+	top:250px;
     display: flex;
     justify-content: center;
-    line-height: 650px;
+    line-height: auto;
+	height:50px;
+    
 }
 
 .profile-list{
@@ -25,6 +38,7 @@ body{
     padding-bottom: 1px;
     
 }
+
 
 .login-div{
     text-align: center;
@@ -52,8 +66,8 @@ body{
 }
 
 .bottom-menu {
-    position:relative;
-    top:520px;
+    position:fixed;
+    bottom:0px;
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -64,4 +78,21 @@ body{
     color: #333;
     padding: 10px;
     margin: 0 20px;
+}
+
+.name{
+
+
+
+
+}
+
+.syokai{
+
+
+}
+
+.kyomi{
+
+    
 }
