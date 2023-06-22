@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/test.css">
+    <title>Document</title>
+</head>
+<body>
+    <button id="my-button">表示する</button>
+    <div id="my-box">このボックスが表示されます。</div>
+
+    <script>
+        document.getElementById('my-button').addEventListener('click', function() {
+            var box = document.getElementById('my-box');
+            if (box.style.display === 'none') {
+                box.style.display = 'block';
+            } else {
+                box.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

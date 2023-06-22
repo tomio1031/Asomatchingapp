@@ -5,29 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/YourProfile.css">
-    <link rel ="stylesheet" href="css/all.min.css">
     <title>Asotalk</title>
 </head>
 <body>
         <div class="logo"><img class="logoimg" src="images/asotalk_blue.png"></div>
 
+        <div class="profile-img"><img src="images/profile.png" width="300px" height="500px"></div>
+
+        <button id="my-button"></button>
+        <div id="my-box">納富裕貴,20,女<br>
+                         aaaaaaaaaaaaaa</div>
+
+        <script>
+        document.getElementById('my-button').addEventListener('click', function() {
+        var box = document.getElementById('my-box');
+                if (box.style.display === 'none') {
+                        box.style.display = 'block';
+                } else {
+                        box.style.display = 'none';
+                }
+        });
+        </script>
+
         <div class="bottom-menu">
             <a href="#">
-                <!-- <div class="Your"> -->
                     <img src="images/asotalk_black_icon.png" width="30px" height="auto">
-                <!-- </div> -->
             </a>
 
             <a href="#">
-                <!-- <button class="List"> -->
                     <img src="images/list-solid.svg" width="30px" height="auto">
-                <!-- </button> -->
             </a>
             
             <a href="#">
-                <!-- <button class="My"> -->
                     <img src="images/user-regular.svg" width="30px" height="auto">
-                <!-- </button> -->
             </a>
           </div>  
 </body>
