@@ -1,0 +1,98 @@
+body{
+    background-color: #ffffff;
+}
+
+.logo{
+
+    top:100px;
+    width: 0px;
+    height: 0px;
+
+}
+
+.logoimg{
+    width: 150px;
+    height:75px;
+}
+
+.gear{
+    margin-left: auto;
+    width: 70px;
+    height: 30px;
+	margin-top :-10px
+  
+}
+  
+.profile-list{
+	position: relative; 
+	top:250px;
+    display: flex;
+    justify-content: center;
+    line-height: auto;
+	height:50px;
+    
+}
+
+.profile-list{
+    border-bottom: 8px solid rgba(168, 208, 249, 0.425);
+    padding-bottom: 1px;
+    
+}
+
+
+.login-div{
+    text-align: center;
+    position:relative;
+    top:160px;
+}
+
+.login{
+    border: 3px solid #eaf2fc;
+    border-radius: 100px;
+    width: 170px;
+    padding: 5px;
+    box-sizing: border-box;
+    background: #80A8ff;
+    color: #eaf2fc;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 0;
+	transition:0.5s;
+}
+
+.login:hover{
+    color: #80a8ff;
+	background: #eaf2fc;
+}
+
+.bottom-menu {
+    position:fixed;
+    bottom:0px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+  
+  .bottom-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    margin: 0 20px;
+}
+
+.name{
+
+
+
+
+}
+
+.syokai{
+
+
+}
+
+.kyomi{
+
+    
+}
