@@ -12,20 +12,12 @@
 
         <div class="profile-img"><img src="images/profile.png" width="300px" height="500px"></div>
 
-        <button id="my-button"></button>
-        <div id="my-box">納富裕貴,20,女<br>
-                         aaaaaaaaaaaaaa</div>
+        <button id="my-button-l"></button>
 
-        <script>
-        document.getElementById('my-button').addEventListener('click', function() {
-        var box = document.getElementById('my-box');
-                if (box.style.display === 'none') {
-                        box.style.display = 'block';
-                } else {
-                        box.style.display = 'none';
-                }
-        });
-        </script>
+        <button id="my-button-r"></button>
+
+        <div id="my-box"><br><br>納富裕貴,20,女<br>
+                             aaaaaaaaaaaaaa</div>
 
         <div class="bottom-menu">
             <a href="#">
@@ -39,6 +31,17 @@
             <a href="#">
                     <img src="images/user-regular.svg" width="30px" height="auto">
             </a>
-          </div>  
+        </div>  
+
+        <script>
+        document.getElementById('my-button-r').addEventListener('click', function() {
+        var box = document.getElementById('my-box');
+                if (box.style.display === 'none') {
+                        box.style.display = 'block';
+                } else {
+                        box.style.display = 'none';
+                }
+        });
+        </script>
 </body>
 </html>
