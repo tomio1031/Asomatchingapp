@@ -1,0 +1,325 @@
+/* ↓ヘッダーデザイン */
+#your_container{
+  /* 高さや幅など、好きな様に設定
+  bms_messages_containerの方で、縦横いっぱいに広がってくれるので、
+  ここで充てた高さと横幅がそのままスタイルになる仕組み */
+
+  height:585px;/*ここはご自由に*/
+  width: 100%;/*ここはご自由に*/
+}
+/* チャットの外側部分① */
+#bms_messages_container{
+  height: 100%;/*your_containerに対して100%になる */
+  width: 100%;/*your_containerに対して100%になる */
+  background-color: #eee;
+}
+
+/* ヘッダー部分② */
+#bms_chat_header {
+  padding: 6px;/*隙間調整*/
+  font-size: 16px;
+  height: 10%;
+  background: #60bdff;
+  border: 1px solid #ccc;
+  
+}
+  /* ステータスマークとユーザー名 */
+  #bms_chat_user_status {
+      float: center;/* bms_chat_headerに対して中央寄せ */
+  }
+  /* ステータスマーク */
+  #bms_status_icon {
+      float: left;/* bms_chat_user_statusに対して左寄せ */
+      line-height: 2em;/*高さ調整*/
+      width: 35px;
+      height: 35px;
+      padding-top: 2%;
+  }
+  /* ユーザー名 */
+  #bms_chat_user_name {
+      float: left;/* bms_chat_user_statusに対して中央寄せ */
+      line-height: 2em;/*高さ調整*/
+      padding-left: 30%;
+      font-size: 30px;
+  }
+  /* ごめんなさいのアイコン */
+  #bms_sorry_icon {
+    float: light;/* bms_chat_user_statusに対して右寄せ */
+    line-height: 2em;/*高さ調整*/
+    transform: scaleX(-1); /*水平方向に反転*/
+    width: 40px;
+    height: 40px;
+    padding-top: 2%;
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+  /* よろしくのアイコン */
+  #bms_yorosiku_icon {
+    float: light;/* bms_chat_user_statusに対して右寄せ */
+    line-height: 2em;/*高さ調整*/
+    width: 40px;
+    height: 40px;
+  }
+/* タイムライン部分③ */
+#bms_messages {
+  overflow: auto;/* スクロールを効かせつつ、メッセージがタイムラインの外に出ないようにする */
+  height:100%;/*テキストエリアが下に張り付く様にする*/
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2) inset;/*ヘッダーの下に影を入れる*/
+}
+  /* メッセージ全般のスタイル */
+  .bms_message {
+      margin: 0px;
+      padding: 0 14px;/*吹き出しがタイムラインの側面にひっつかない様に隙間を開ける*/
+      font-size: 16px;
+      word-wrap: break-word;/* 吹き出し内で自動で改行 */
+      white-space: normal;/*指定widthに合わせて、文字を自動的に改行*/
+  }
+  /* メッセージ１（左側） */
+  .bms_left {
+      float: left;/*吹き出しをbms_messagesに対して左寄せ*/
+      line-height: 1.3em;
+  }
+  /* メッセージ２（右側） */
+  .bms_right {
+      float: right;/*吹き出しをbms_messagesに対して右寄せ*/
+      line-height: 1.3em;
+  }
+  /* 回り込みを解除 */
+  .bms_clear {
+      clear: both; /* 左メッセージと右メッセージの回り込み(float)の効果の干渉を防ぐために必要（これが無いと、自分より下のメッセージにfloatが影響する） */
+
+  }
+
+/* テキストエリア、送信ボタン④ */
+#bms_send {
+  background-color:#eee;/*タイムラインの色と同じにする*/
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  height: 48px;
+  padding: 4px;
+}
+  #bms_send_message{
+      width: calc(100% - 75px);/*常に送信ボタンの横幅を引いたサイズに動的に計算*/
+      line-height: 16px;
+      height: 48px;
+      padding: 14px 6px 0px 6px;/*文字がテキストエリアの中心になる様に隙間調整*/
+      border: 1px solid #ccc;
+      border-radius: 4px;/*角丸*/
+      text-align: left;/*文字を左寄せ*/
+      box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;/*内側に影を入れてテキストエリアらしくした*/
+      box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
+      border-radius: 10px;
+      resize: none;
+      font-size: 20px;
+  }
+  #bms_send_btn {
+      width: 72px;
+      height: 48px;
+      font-size: 16px;
+      line-height: 3em;
+      float: right;/*bms_sendに対して右寄せ*/
+      color: #fff;
+      font-weight: bold;
+      background: #bcbcbc;
+      text-align: center;/*文字をボタン中央に表示*/
+      border: 1px solid #bbb;
+      border-radius: 4px;/*角丸*/
+      box-sizing: border-box;/*paddingとborderの要素の高さと幅の影響をなくす（要素に高さと幅を含める）*/
+  }
+  #bms_send_btn img {
+    width: 35px;
+    height: 35px;
+    margin-top: 6px;
+  }
+  #bms_send_btn:hover {
+      background: #3de3b4; /*マウスポインタを当てた時にアクティブな色になる*/
+      cursor: pointer;/*マウスポインタを当てた時に、カーソルが指の形になる*/
+  }
+
+  /* .bms_message {
+    } */
+    /*
+     *追加
+     */
+    .bms_message_box{
+        margin-top: 20px;/*上下の吹き出しがひっつかない様に隙間を入れる*/
+        max-width: 100%; /*文字が長くなった時に吹き出しがタイムラインからはみ出さない様にする*/
+        font-size: 16px;
+    }
+        /*
+        *追加
+        */
+        .bms_message_content{
+            padding: 20px;/*文字や画像（コンテンツ）の外側に隙間を入れる*/
+        }
+
+    /* メッセージ１（左側） */
+    .bms_left {
+        float: left;/*吹き出しをbms_messagesに対して左寄せ*/
+        line-height: 1.3em;
+    }
+        /*
+        *追加
+        */
+        .bms_left .bms_message_box {
+            color: #333;/*テキストを黒にする*/
+            background: #fff;
+            border: 2px solid #13178E;
+            border-radius: 30px 30px 30px 0px;/*左下だけ尖らせて吹き出し感を出す*/
+            margin-right: 50px;/*左側の発言だとわかる様に、吹き出し右側に隙間を入れる*/
+        }
+
+    /* メッセージ２（右側） */
+    .bms_right {
+        float: right;/*吹き出しをbms_messagesに対して右寄せ*/
+        line-height: 1.3em;
+    }
+        /*
+        *追加
+        */
+        .bms_right .bms_message_box {
+            color: #fff;/*テキストを白にする*/
+            background: #13178E;
+            border: 2px solid #13178E;
+            border-radius: 30px 30px 0px 30px;/*右下だけ尖らせて吹き出し感を出す*/
+            margin-left: 50px;/*右側の発言だとわかる様に、吹き出し左側に隙間を入れる*/
+        }
+#send_time { /*送った時間*/
+  margin-top: 2%;
+  margin-left: 240px;
+}
+
+#reception_time { /*送られてきた時間*/
+  margin-top: 2%;
+}
+
+/* モーダル */
+/*--------------------------------------
+  モーダル表示上から_002
+--------------------------------------*/
+.modal_wrap input {
+  display: none;
+}
+
+.modal_overlay {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0s 0.5s;
+  transform: scale(0);
+}
+
+.modal_trigger {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.modal_content {
+    align-self: center;
+    width: 60%;
+    padding: 30px 30px 15px;
+    box-sizing: border-box;
+    background: #fff;
+    line-height: 1.4em;
+    transition: 0.5s;
+}
+
+.modal_content p {
+  padding-top: 0;
+}
+
+.close_button {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal_wrap input:checked ~ .modal_overlay {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s;
+}
+
+.modal_wrap input:checked ~ .modal_overlay .modal_content {
+  transform: translateY(20px);
+}
+
+.open_button {
+   color: #4f96f6;
+    background-color: #eeeeee;
+    font-weight: bold;
+    text-align: right;
+    cursor :pointer;
+    transition: all 0.3s;
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 1px;
+    padding: 12px 2px;
+    max-width:35px;
+    text-decoration: none;
+}
+
+.open-button:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);/*下に動く*/
+
+}
+
+/*アイコンを表示*/
+.open-button:after {
+font-family: "Font Awesome 5 Free";
+  content: "\f2d0";
+    padding-left: 8px;
+}
+
+/*ラベルホバー時*/
+.open-button:hover {
+  color: #FFFFFF;
+  background-color: #4f96f6;
+  transition: .6s;
+}
+
+.modal_title2 {
+  font-size: 1.5em;
+	position: relative;
+	overflow: hidden;
+  padding-bottom: 10px;
+  margin-top:0;
+  margin-bottom: 0;
+}
+
+.modal_title2::before,
+.modal_title2::after{
+	content: "";
+	position: absolute;
+	bottom: 0;
+}
+
+/* h2 プライマリカラー*/
+.modal_title2:before{
+	border-bottom: 4px solid #6bb6ff;
+	width: 100%;
+}
+/* h2 セカンダリカラー*/
+.modal_title2:after{
+	border-bottom: 4px solid #c8e4ff;
+	width: 100%;
+}
+
+/*↑モーダル*/

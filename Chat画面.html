@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/チャット画面.css">
+    <title>Chat画面</title>
+    
+</head>
+  <body>
+    <div id="your_container">
+
+        <!-- チャットの外側部分① -->
+        <div id="bms_messages_container">
+            <!-- ヘッダー部分② -->
+            <div id="bms_chat_header">
+                <!--ステータス-->
+                <div id="bms_chat_user_status">
+                    <!--ステータスアイコン-->
+                    <a href="">
+                        <img src="img\arrow-left-solid.svg" alt="リンクのテキスト" id="bms_status_icon">
+                    </a>
+                    <!-- ごめんなさいのアイコン -->
+                    <div class="modal_wrap">
+                      <input id="trigger" type="checkbox">
+                          <div class="modal_overlay">
+                              <label for="trigger" class="modal_trigger"></label>
+                              <div class="modal_content">
+                                  <label for="trigger" class="close_button">✖️</label>
+                                  <p class="modal_title2">注意！</p>
+                                  <p>このユーザーをブロックしますか？<br>
+                                     ブロックすると次のユーザーとマッチします。</p>
+                                    <button>キャンセル</button>
+                                    <button>ブロック</button>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <label for="trigger" class="open_button"><img src="img\person-praying-solid.svg" alt="リンクのテキスト" id="bms_sorry_icon"></label>
+                      
+                    <!-- よろしくのアイコン -->
+                    <!-- <button id="button js-modal-button"><img src="img\handshake-simple-solid.svg" alt="リンクのテキスト" id="bms_yorosiku_icon"></button> -->
+                    <div class="modal_wrap">
+                      <input id="trigger" type="checkbox">
+                          <div class="modal_overlay">
+                              <label for="trigger" class="modal_trigger"></label>
+                              <div class="modal_content">
+                                  <label for="trigger" class="close_button">✖️</label>
+                                  <p class="modal_title2">友達申請</p>
+                                  <p>ユーザーに友達申請を行いますか？<br>
+                                     許可されると学籍番号が表示されます。</p>
+                                    <button>キャンセル</button>
+                                    <button>申請</button>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <label for="trigger" class="open_button"><img src="img\handshake-simple-solid.svg" alt="リンクのテキスト" id="bms_yorosiku_icon"></label>
+                      
+                    <!--ユーザー名-->
+                    <div id="bms_chat_user_name">名前</div>
+                </div>
+            </div>
+            <!-- タイムライン部分③ -->
+            <div id="bms_messages">
+
+                <!--メッセージ１（左側）-->
+                <div class="bms_message bms_left">
+                    <div class="bms_message_box">
+                        <div class="bms_message_content">
+                            <div class="bms_message_text">うぁぁぁぁ</div>
+                        </div>
+                    </div>
+                    <p id="reception_time">時間</p>
+                </div>
+                <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+
+                <!--メッセージ２（右側）-->
+                <div class="bms_message bms_right">
+                    <div class="bms_message_box">
+                        <div class="bms_message_content">
+                            <div class="bms_message_text">おおおおおおおおおおお</div>
+                        </div>
+                    </div>
+                    <p id="send_time">時間</p>
+                </div>
+                <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+            </div>
+
+            <!-- テキストボックス、送信ボタン④ -->
+            <div id="bms_send">
+                <textarea id="bms_send_message"></textarea>
+                <div id="bms_send_btn"><img src="img\paper-plane-solid.svg"></div>
+            </div>
+        </div>
+        
+    </div>
+    <script src="style\index.js"></script>
+</body>
+</html>
