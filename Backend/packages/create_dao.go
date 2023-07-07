@@ -16,7 +16,7 @@ type Student struct {
 	Hobby     string `json:"hobby"`
 }
 
-func Create(studentID string, name string, age string, gender string, password string, hobby string) (Student, error) {
+func Create(s Student) (Student, error) {
 	// DB接続
 	db, err := sql.Open("mysql", "LAA1417803:LAA1417803@tcp(mysql215.phy.lolipop.lan)/LAA1417803-matching?charset=utf8")
 	if err != nil {
@@ -27,7 +27,7 @@ func Create(studentID string, name string, age string, gender string, password s
 
 	// 学籍番号の重複チェック
 	var exists int
-	err = db.QueryRow("SELECT COUNT(*) FROM students WHERE student_id = ?", studentID).Scan(&exists)
+	err = db.QueryRow("SELECT COUNT(*) FROM students WHERE student_id = ?", s.StudentID).Scan(&exists)
 	if err != nil {
 		log.Fatal(err)
 		return Student{}, fmt.Errorf("failed to check if student ID exists: %v", err)
@@ -44,7 +44,7 @@ func Create(studentID string, name string, age string, gender string, password s
 		return Student{}, fmt.Errorf("failed to prepare insert statement: %v", err)
 	}
 
-	_, err = stmt.Exec(studentID, name, age, gender, password, hobby)
+	_, err = stmt.Exec(s.StudentID, s.Name, s.Age, s.Gender, s.Password, s.Hobby)
 	if err != nil {
 		log.Fatal(err)
 		return Student{}, fmt.Errorf("failed to execute insert statement: %v", err)
@@ -52,11 +52,11 @@ func Create(studentID string, name string, age string, gender string, password s
 
 	// インサートした情報を返す
 	return Student{
-		StudentID: studentID,
-		Name:      name,
-		Age:       age,
-		Gender:    gender,
-		Password:  password,
-		Hobby:     hobby,
+		StudentID: s.StudentID,
+		Name:      s.Name,
+		Age:       s.Age,
+		Gender:    s.Gender,
+		Password:  s.Password,
+		Hobby:     s.Hobby,
 	}, nil
 }

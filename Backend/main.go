@@ -3,12 +3,8 @@ package main
 import (
 	"encoding/json"
 	"net/http"
-	"github.com/asoMatching/package"
+	dao "github.com/matching/packages"
 )
-
-type Message struct {
-	Text string `json:"text"`
-}
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -18,13 +14,18 @@ func main() {
 		r.ParseForm()
 
 		if r.Form["create"] != nil {
-			studentID := r.FormValue("student_id")
-			name := r.FormValue("name")
-			age := r.FormValue("age")
-			gender := r.FormValue("gender")
-			password := r.FormValue("password")
-			hobby := r.FormValue("hobby")
-			message = dao.Create(studentID, name, age, gender, password, hobby)
+			student := dao.Student{
+				StudentID: r.FormValue("student_id"),
+				Name:      r.FormValue("name"),
+				Age:       r.FormValue("age"),
+				Gender:    r.FormValue("gender"),
+				Password:  r.FormValue("password"),
+				Hobby:     r.FormValue("hobby"),
+			}
+			message, err := dao.Create(student)
+			if err != nil {
+				// handle error here
+			}
 		}
 
 		json.NewEncoder(w).Encode(message)
