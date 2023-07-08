@@ -8,8 +8,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		var message dao.Message
-		message.Text = "No API exists"
+		var message interface{} = "No API exists"
 
 		r.ParseForm()
 
@@ -22,10 +21,7 @@ func main() {
 				Password:  r.FormValue("password"),
 				Hobby:     r.FormValue("hobby"),
 			}
-			message, err := dao.Create(student)
-			if err != nil {
-				// handle error here
-			}
+			message = dao.Create(student)
 		}
 
 		json.NewEncoder(w).Encode(message)

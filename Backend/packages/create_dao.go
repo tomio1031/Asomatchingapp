@@ -6,6 +6,10 @@ import (
 	"log"
 	_ "github.com/go-sql-driver/mysql"
 )
+type Message struct {
+    Text string `json:"text"`
+}
+
 
 type Student struct {
 	StudentID string `json:"student_id"`
