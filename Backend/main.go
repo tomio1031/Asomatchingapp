@@ -3,32 +3,26 @@ package main
 import (
 	"encoding/json"
 	"net/http"
-	dao "github.com/matching/packages"
+	"github.com/matching/Backend/matching"
 )
-func enableCors(w *http.ResponseWriter) {
-    (*w).Header().Set("Access-Control-Allow-Origin", "*")
-    (*w).Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-    (*w).Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
-}
+
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
-		var message interface{} = "No API exists"
-
-		r.ParseForm()
-
-		if r.Form["create"] != nil {
-			student := dao.Student{
-				StudentID: r.FormValue("student_id"),
-				Name:      r.FormValue("name"),
-				Age:       r.FormValue("age"),
-				Gender:    r.FormValue("gender"),
-				Password:  r.FormValue("password"),
-				Hobby:     r.FormValue("hobby"),
-			}
-			message = dao.Create(student)
+		if r.Method != http.MethodPost {
+			http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+			return
 		}
 
+		var s matching.Student // <- matching.Student型を使用
+		err := json.NewDecoder(r.Body).Decode(&s)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+
+		message := matching.Create(s) // <- matching.Create関数を使用
+
+		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(message)
 	})
 

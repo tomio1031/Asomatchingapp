@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Student Registration</title>
-</head>
 <body>
-    <h1>Student Registration</h1>
-    <form id="registrationForm">
-        <label for="student_id">Student ID:</label><br>
-        <input type="text" id="student_id" name="student_id"><br>
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name"><br>
-        <label for="age">Age:</label><br>
-        <input type="text" id="age" name="age"><br>
-        <label for="gender">Gender:</label><br>
-        <input type="text" id="gender" name="gender"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br>
-        <label for="hobby">Hobby:</label><br>
-        <input type="text" id="hobby" name="hobby"><br>
-        <input type="submit" value="Submit">
-    </form>
-    <script src="create.js"></script>
+
+<form id="registrationForm">
+    Student ID: <input type="text" id="student_id"><br>
+    Name: <input type="text" id="name"><br>
+    Age: <input type="text" id="age"><br>
+    Gender: <input type="text" id="gender"><br>
+    Password: <input type="text" id="password"><br>
+    Hobby: <input type="text" id="hobby"><br>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let student = {
+        student_id: document.getElementById('student_id').value,
+        name: document.getElementById('name').value,
+        age: document.getElementById('age').value,
+        gender: document.getElementById('gender').value,
+        password: document.getElementById('password').value,
+        hobby: document.getElementById('hobby').value,
+    }
+    
+    fetch('http://localhost:8000', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(student),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+</script>
+
 </body>
 </html>

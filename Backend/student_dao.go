@@ -1,8 +1,8 @@
-package packages
+package main
 
 import (
 	"database/sql"
-	"log"
+	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -15,12 +15,11 @@ type Student struct {
 	Hobby     string `json:"hobby"`
 }
 
-func Create(s Student) interface{} {
-	// DB接続
+func Create(s Student) (message interface{}) { 
+	// データベースへの接続
 	db, err := sql.Open("mysql", "LAA1417803:LAA1417803@tcp(mysql215.phy.lolipop.lan)/LAA1417803-matching?charset=utf8")
 	if err != nil {
-		log.Fatal(err)
-		return "database connection failed: " + err.Error()
+		return fmt.Sprintf("database connection failed: %v", err)
 	}
 	defer db.Close()
 
@@ -28,27 +27,24 @@ func Create(s Student) interface{} {
 	var exists int
 	err = db.QueryRow("SELECT COUNT(*) FROM students WHERE student_id = ?", s.StudentID).Scan(&exists)
 	if err != nil {
-		log.Fatal(err)
-		return "failed to check if student ID exists: " + err.Error()
+		return fmt.Sprintf("failed to check if student ID exists: %v", err)
 	}
 
 	if exists > 0 {
 		return "the student ID already exists"
 	}
 
-	// インサート処理
+	// データベースへのインサート
 	stmt, err := db.Prepare("INSERT INTO students(student_id, name, age, gender, password, hobby) VALUES(?, ?, ?, ?, ?, ?)")
 	if err != nil {
-		log.Fatal(err)
-		return "failed to prepare insert statement: " + err.Error()
+		return fmt.Sprintf("failed to prepare insert statement: %v", err)
 	}
 
 	_, err = stmt.Exec(s.StudentID, s.Name, s.Age, s.Gender, s.Password, s.Hobby)
 	if err != nil {
-		log.Fatal(err)
-		return "failed to execute insert statement: " + err.Error()
+		return fmt.Sprintf("failed to execute insert statement: %v", err)
 	}
 
-	// インサートした情報を返す
-	return s
+	// 成功メッセージを返す
+	return "Student successfully created"
 }
