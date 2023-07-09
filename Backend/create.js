@@ -2,6 +2,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     event.preventDefault();
 
     let student = {
+        create: true,  // Add this line
         student_id: document.getElementById('student_id').value,
         name: document.getElementById('name').value,
         age: document.getElementById('age').value,
@@ -9,7 +10,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         password: document.getElementById('password').value,
         hobby: document.getElementById('hobby').value,
     }
-
+    
     fetch('http://localhost:8000', {
         method: 'POST',
         headers: {
@@ -22,4 +23,5 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     .catch((error) => {
         console.error('Error:', error);
     });
+    
 });
