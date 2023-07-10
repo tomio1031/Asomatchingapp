@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <label for="id">ID:</label>
+        <input type="text" id="student_id" name="student_id">
+
+        <label for="name">NAME:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="age">AGE:</label>
+        <input type="text" id="age" name="age">
+
+        <label for="gender">GENDER:</label>
+        <input type="text" id="gender" name="gender">
+
+        <label for="password">PASSWORD:</label>
+        <input type="text" id="password" name="password">
+
+        <label for="hobby_id">HOBBY ID:</label>
+        <input type="text" id="hobby_id" name="hobby_id">
+
+        <button id="submit-btn">create</button>
+    </div>
+
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+      document.getElementById('submit-btn').addEventListener('click', function(){
+    const student_id = document.getElementById('student_id').value;
+    const name = document.getElementById('name').value;
+    const age = document.getElementById('age').value;
+    const gender = document.getElementById('gender').value;
+    const password = document.getElementById('password').value;
+    const hobby_id = document.getElementById('hobby_id').value;
+
+    const formData = new FormData();
+    formData.append("create", '');
+    formData.append("student_id", student_id);
+    formData.append("name", name);
+    formData.append("age", age);
+    formData.append("gender", gender);
+    formData.append("password", password);
+    formData.append("hobby_id", hobby_id);
+
+    axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+    .then(function(response) {
+        console.log(response);
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+});
+
+    </script>
+</body>
+
+</html>
