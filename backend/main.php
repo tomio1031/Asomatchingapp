@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 
 require_once 'loginDAO.php';
 require_once 'createDAO.php';
+require_once 'profileDAO.php';
 // require_once 'imageDAO.php';
 
 $message = 'No API exists';
@@ -16,6 +17,10 @@ if (isset($_POST['login'])) {
 if (isset($_POST['create'])) {
     $createDao = new createDAO();
     $message = $createDao->create($_POST['student_id'], $_POST['name'], $_POST['age'], $_POST['gender'], $_POST['password'], $_POST['hobby_id']);
+}
+if (isset($_POST['profile'])) {
+    $profileDao = new ProfileDAO();
+    $message = $profileDao->getProfile($_POST['student_id']);
 }
 // if (isset($_POST['image'])) {
 //     $imageDao = new ImageDAO();
