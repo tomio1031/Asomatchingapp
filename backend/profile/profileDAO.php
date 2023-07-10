@@ -12,7 +12,7 @@ class ProfileDAO {
 
     public function getProfile($student_id) {
         // Check if the student_id exists
-        $sql = "SELECT name, age, hobby_id, introduction FROM Users WHERE student_id = :student_id";
+        $sql = "SELECT name, age, hobby_id, introduction, profile_image FROM Users WHERE student_id = :student_id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
         $stmt->execute();
