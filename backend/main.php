@@ -8,6 +8,7 @@ require_once 'createDAO.php';
 require_once 'profileDAO.php';
 require_once 'profile_editDAO.php';
 require_once 'imageDAO.php';
+require_once 'matchDAO.php';
 
 $message = 'No API exists';
 
@@ -31,6 +32,10 @@ if (isset($_POST['profile_edit'])) {
 if (isset($_POST['image_edit'])) {
     $image_editDao = new image_editDAO();
     $message = $image_editDao->image_editDAO($_POST['student_id'], $_FILES['fileToUpload']);
+}
+if (isset($_POST['match'])) {
+    $matchDao = new matchDAO();
+    $message = $matchDao->matching($_POST['student_id']);
 }
 echo json_encode($message);
 ?>
