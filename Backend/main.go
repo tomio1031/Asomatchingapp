@@ -9,6 +9,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+
 type User struct {
 	StudentId string `json:"student_id"`
 	Name      string `json:"name"`

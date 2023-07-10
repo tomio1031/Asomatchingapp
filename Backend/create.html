@@ -5,48 +5,54 @@
 </head>
 <body>
     <form id="userForm">
-        <input type="text" id="studentId" placeholder="学籍番号">
-        <input type="text" id="name" placeholder="名前">
-        <input type="number" id="age" placeholder="年齢">
-        <input type="text" id="gender" placeholder="性別">
-        <input type="password" id="password" placeholder="パスワード">
-        <input type="text" id="hobby_id" placeholder="趣味ID">
+        <input type="text" id="studentId" placeholder="student_id">
+        <input type="text" id="name" placeholder="name">
+        <input type="number" id="age" placeholder="age">
+        <input type="text" id="gender" placeholder="gender">
+        <input type="text" id="password" placeholder="password">
+        <input type="text" id="hobby_id" placeholder="hobby_id">
         <button type="button" onclick="submitForm()">Submit</button>
     </form>
 
     <script>
-        try {
         async function submitForm() {
-            let studentId = document.getElementById('studentId').value;
-            let name = document.getElementById('name').value;
-            let age = parseInt(document.getElementById('age').value, 10);
-            let gender = document.getElementById('gender').value;
-            let password = document.getElementById('password').value;
-            let hobby_id = document.getElementById('hobby_id').value;
-            
-            let data = {
-                studentId: studentId,
-                name: name,
-                age: age,
-                gender: gender,
-                password: password,
-                hobby_id: hobby_id
-            };
+            try {
+                let studentId = document.getElementById('studentId').value;
+                let name = document.getElementById('name').value;
+                let age = parseInt(document.getElementById('age').value, 10);
+                let gender = document.getElementById('gender').value;
+                let password = document.getElementById('password').value;
+                let hobby_id = document.getElementById('hobby_id').value;
+                
+                let data = {
+                    studentId: studentId,
+                    name: name,
+                    age: age,
+                    gender: gender,
+                    password: password,
+                    hobby_id: hobby_id
+                };
+                console.log("Sending request", data);
+let response = await fetch('http://learning-sql.kikirara.jp/main.go', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+});
+console.log("Received response", response);
 
-            let response = await fetch('http://localhost:8080/create', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
+if (!response.ok) {
+    throw new Error('Network response was not ok');
+}
 
-            let result = await response.json();
-            console.log(result);
+let result = await response.json();
+console.log(result);
+
+            } catch (err) {
+                console.error("Error occurred:", err);
+            }
         }
-    } catch (err) {
-        console.error("Error occurred:", err);
-    }
     </script>
 </body>
 </html>
