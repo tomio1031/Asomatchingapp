@@ -35,22 +35,15 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
-      document.getElementById('submit-btn').addEventListener('click', function(){
-    const student_id = document.getElementById('student_id').value;
-    const name = document.getElementById('name').value;
-    const age = document.getElementById('age').value;
-    const gender = document.getElementById('gender').value;
-    const password = document.getElementById('password').value;
-    const hobby_id = document.getElementById('hobby_id').value;
-
+    document.getElementById('submit-btn').addEventListener('click', function() {
+    const fields = ['student_id', 'name', 'age', 'gender', 'password', 'hobby_id'];
     const formData = new FormData();
+
+    fields.forEach((field) => {
+        formData.append(field, document.getElementById(field).value);
+    });
+
     formData.append("create", '');
-    formData.append("student_id", student_id);
-    formData.append("name", name);
-    formData.append("age", age);
-    formData.append("gender", gender);
-    formData.append("password", password);
-    formData.append("hobby_id", hobby_id);
 
     axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
         headers: {
