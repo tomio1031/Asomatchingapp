@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Edit Page</title>
+</head>
+
+<body>
+    <div id="app">
+        <label for="student_id">Student ID:</label>
+        <input type="text" id="student_id" name="student_id">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age">
+
+        <label for="hobby_id">Hobby ID:</label>
+        <input type="text" id="hobby_id" name="hobby_id">
+
+        <label for="introduction">Introduction:</label>
+        <input type="text" id="introduction" name="introduction">
+
+        <button id="submit-btn">Edit Profile</button>
+    </div>
+
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+    document.getElementById('submit-btn').addEventListener('click', function() {
+        const fields = ['student_id', 'name', 'age', 'hobby_id', 'introduction'];
+        const formData = new FormData();
+
+        fields.forEach((field) => {
+            formData.append(field, document.getElementById(field).value);
+        });
+
+        formData.append("profile_edit", '');
+
+        axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    });
+    </script>
+</body>
+
+</html>
