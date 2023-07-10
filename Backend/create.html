@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Create User</title>
+</head>
 <body>
+    <form id="userForm">
+        <input type="text" id="studentId" placeholder="学籍番号">
+        <input type="text" id="name" placeholder="名前">
+        <input type="number" id="age" placeholder="年齢">
+        <input type="text" id="gender" placeholder="性別">
+        <input type="password" id="password" placeholder="パスワード">
+        <input type="text" id="hobby_id" placeholder="趣味ID">
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
 
-<form id="registrationForm">
-    Student ID: <input type="text" id="student_id"><br>
-    Name: <input type="text" id="name"><br>
-    Age: <input type="text" id="age"><br>
-    Gender: <input type="text" id="gender"><br>
-    Password: <input type="text" id="password"><br>
-    Hobby: <input type="text" id="hobby"><br>
-    <button type="submit">Submit</button>
-</form>
+    <script>
+        try {
+        async function submitForm() {
+            let studentId = document.getElementById('studentId').value;
+            let name = document.getElementById('name').value;
+            let age = parseInt(document.getElementById('age').value, 10);
+            let gender = document.getElementById('gender').value;
+            let password = document.getElementById('password').value;
+            let hobby_id = document.getElementById('hobby_id').value;
+            
+            let data = {
+                studentId: studentId,
+                name: name,
+                age: age,
+                gender: gender,
+                password: password,
+                hobby_id: hobby_id
+            };
 
-<script>
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+            let response = await fetch('http://localhost:8080/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-    let student = {
-        student_id: document.getElementById('student_id').value,
-        name: document.getElementById('name').value,
-        age: document.getElementById('age').value,
-        gender: document.getElementById('gender').value,
-        password: document.getElementById('password').value,
-        hobby: document.getElementById('hobby').value,
+            let result = await response.json();
+            console.log(result);
+        }
+    } catch (err) {
+        console.error("Error occurred:", err);
     }
-    
-    fetch('http://localhost:8000', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(student),
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-});
-</script>
-
+    </script>
 </body>
 </html>
