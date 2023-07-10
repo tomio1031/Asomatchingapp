@@ -28,28 +28,53 @@ class matchDAO {
     
         $hobby_id = $result['hobby_id'];
     
-        // Find other students with the same hobby_id
-        $sql = "SELECT student_id FROM Users WHERE hobby_id = :hobby_id AND student_id != :student_id";
+        // Check if there's an existing 'matching' status
+        $sql = "SELECT * FROM Matches WHERE (user_id = :student_id OR matched_id = :student_id) AND status = 'matching'";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
+        $stmt->execute();
+    
+        $existingMatching = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if ($existingMatching) {
+            return array(
+                'Match' => false,
+                'Message' => 'Matching already exists.'
+            );
+        }
+    
+        // If there's no existing 'matching' status, find students with the same hobby
+        $sql = "SELECT student_id FROM Users WHERE hobby_id = :hobby_id AND student_id != :student_id AND student_id NOT IN (SELECT user_id FROM Matches WHERE matched_id = :student_id) AND student_id NOT IN (SELECT matched_id FROM Matches WHERE user_id = :student_id)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':hobby_id', $hobby_id, PDO::PARAM_INT);
         $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
         $stmt->execute();
     
-        $matches = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $possibleMatches = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-        if(empty($matches)) {
+        if (empty($possibleMatches)) {
             return array(
                 'Match' => false,
                 'Message' => 'No students found with the same hobby. You may want to consider changing your hobby.'
             );
         }
     
+        // Pick a random student from the matches
+        $randomMatch = $possibleMatches[array_rand($possibleMatches)];
+        // Add the match to the Matches table
+        $sql = "INSERT INTO Matches (user_id, matched_id, status) VALUES (:student_id, :matched_id, 'matching')";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
+        $stmt->bindValue(':matched_id', $randomMatch['student_id'], PDO::PARAM_INT);
+        $stmt->execute();
+    
         return array(
             'Match' => true,
-            'Message' => 'Matched students found.',
-            'Matches' => $matches
+            'Message' => 'A match has been found and added.',
+            'Matched Student' => $randomMatch['student_id']
         );
     }
+    
     
 }
 ?>
