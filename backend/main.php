@@ -7,7 +7,7 @@ require_once 'loginDAO.php';
 require_once 'createDAO.php';
 require_once 'profileDAO.php';
 require_once 'profile_editDAO.php';
-// require_once 'imageDAO.php';
+require_once 'imageDAO.php';
 
 $message = 'No API exists';
 
@@ -27,9 +27,10 @@ if (isset($_POST['profile_edit'])) {
     $profile_editDao = new Profile_editDAO();
     $message = $profile_editDao->getProfile_edit($_POST['student_id'],$_POST['name'],$_POST['age'],$_POST['hobby_id'],$_POST['introduction']);
 }
-// if (isset($_POST['image'])) {
-//     $imageDao = new ImageDAO();
-//     $message = $imageDao->processImage($_FILES['imageFile'], $_POST['id']); // idを渡して画像を特定のユーザに関連付ける
-// }
+
+if (isset($_POST['image_edit'])) {
+    $image_editDao = new image_editDAO();
+    $message = $image_editDao->image_editDAO($_POST['student_id'], $_FILES['fileToUpload']);
+}
 echo json_encode($message);
 ?>
