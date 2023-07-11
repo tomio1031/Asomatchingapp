@@ -62,19 +62,24 @@ class matchDAO {
         // Pick a random student from the matches
         $randomMatch = $possibleMatches[array_rand($possibleMatches)];
         // Add the match to the Matches table
-        $sql = "INSERT INTO Matches (user_id, matched_id, status) VALUES (:student_id, :matched_id, 'matching')";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
-        $stmt->bindValue(':matched_id', $randomMatch['student_id'], PDO::PARAM_INT);
-        $stmt->execute();
-    
-        return array(
-            'Match' => true,
-            'Message' => 'A match has been found and added.',
-            'Matched Student' => $randomMatch['student_id']
-        );
+                // Add the match to the Matches table
+                $sql = "INSERT INTO Matches (user_id, matched_id, status) VALUES (:student_id, :matched_id, 'matching')";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
+                $stmt->bindValue(':matched_id', $randomMatch['student_id'], PDO::PARAM_INT);
+                $stmt->execute();
+        
+                // Get the ID of the inserted match
+                $matchId = $this->pdo->lastInsertId();
+        
+                return array(
+                    'Match' => true,
+                    'Message' => 'A match has been found and added.',
+                    'Matched Student' => $randomMatch['student_id'],
+                    'Match ID' => $matchId
+                );
+        
     }
-    
     
 }
 ?>
