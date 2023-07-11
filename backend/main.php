@@ -12,6 +12,7 @@ require_once 'matchDAO.php';
 require_once 'friendDAO.php';
 require_once 'blockDAO.php';
 require_once 'sendDAO.php';
+require_once 'readDAO.php';
 
 $message = 'No API exists';
 
@@ -51,6 +52,10 @@ if (isset($_POST['block'])) {
 if (isset($_POST['send'])) {
     $sendDao = new sendDAO();
     $message = $sendDao->send($_POST['sender_id'], $_POST['message'], $_POST['match_id']);
+}
+if (isset($_POST['read'])) {
+    $readDao = new readDAO();
+    $message = $readDao->read($_POST['match_id']);
 }
 echo json_encode($message);
 ?>
