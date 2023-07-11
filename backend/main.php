@@ -10,6 +10,7 @@ require_once 'profile_editDAO.php';
 require_once 'imageDAO.php';
 require_once 'matchDAO.php';
 require_once 'friendDAO.php';
+require_once 'blockDAO.php';
 
 $message = 'No API exists';
 
@@ -40,7 +41,11 @@ if (isset($_POST['match'])) {
 }
 if (isset($_POST['friend'])) {
     $friendDao = new friendDAO();
-    $message = $friendDao->friend($_POST['student_id']);
+    $message = $friendDao->friend($_POST['id']);
+}
+if (isset($_POST['block'])) {
+    $blockDao = new blockDAO();
+    $message = $blockDao->block($_POST['id']);
 }
 echo json_encode($message);
 ?>
