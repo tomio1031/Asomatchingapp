@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+</head>
+
+<body>
+    <div id="app">
+        <label for="student_id">Student ID:</label>
+        ID:<input type="text" id="id" name="student_id"><br>
+        MatchID:<input type="text" id="match_id"><br>
+        Message:<input type="text" id="message" name="message"><br>
+
+        <button id="submit-btn">Get Profile</button>
+    </div>
+
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+    document.getElementById('submit-btn').addEventListener('click', function() {
+        const formData = new FormData();
+        const id = document.getElementById('id').value;
+        const match_id = document.getElementById('match_id').value;
+        const message = document.getElementById('message').value;
+
+        formData.append('sender_id', id);
+        formData.append('match_id', match_id);
+        formData.append('send', '');
+        formData.append('message', message);
+
+        axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    });
+    </script>
+</body>
+
+</html>
