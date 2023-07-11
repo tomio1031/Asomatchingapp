@@ -32,7 +32,6 @@ if (isset($_POST['profile_edit'])) {
     $profile_editDao = new Profile_editDAO();
     $message = $profile_editDao->getProfile_edit($_POST['student_id'],$_POST['name'],$_POST['age'],$_POST['hobby_id'],$_POST['introduction']);
 }
-
 if (isset($_POST['image_edit'])) {
     $image_editDao = new image_editDAO();
     $message = $image_editDao->image_editDAO($_POST['student_id'], $_FILES['fileToUpload']);
