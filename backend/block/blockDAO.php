@@ -20,7 +20,7 @@ class blockDAO {
         if($stmt->rowCount() > 0) {
             return array(
                 'Update' => true,
-                'Message' => 'Match status has been updated to matched.'
+                'Message' => 'マッチングを解除しました'
             );
         } else {
             return array(
