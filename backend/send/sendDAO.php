@@ -21,12 +21,12 @@ class sendDAO {
         if($stmt->rowCount() > 0){
             return array(
                 'Success' => true,
-                'Message' => 'Message sent successfully.'
+                'Message' => '送信完了'
             );
         }else{
             return array(
                 'Success' => false,
-                'Message' => 'Failed to send message.'
+                'Message' => '送信失敗'
             );
         }
     }
