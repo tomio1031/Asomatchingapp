@@ -10,10 +10,10 @@
 
 <body>
     <div id="app">
-        <label for="student_id">Matches ID:</label>
-        <input type="text" id="id" name="id">
+        マッチングID<input type="text" id="id"><br>
 
-        <button id="submit-btn">Get Profile</button>
+        <button id="submit-btn">友達申請</button><br>
+        <div id="response"></div><br>
     </div>
 
     <!-- JSONを扱うためのCDN -->
@@ -34,6 +34,9 @@
         })
         .then(function(response) {
             console.log(response);
+            const responseElement = document.createElement('p');
+                    responseElement.textContent = JSON.stringify(response.data);
+                    document.getElementById('response').appendChild(responseElement);
         })
         .catch(function(error) {
             console.log(error);
