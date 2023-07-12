@@ -40,7 +40,7 @@ class Profile_editDAO {
         // Return success message
         return array(
             'Edit' => true,
-            'Message' => 'Profile updated successfully.',
+            'Message' => 'プロフィールの編集が完了した',
         );
     }
 }

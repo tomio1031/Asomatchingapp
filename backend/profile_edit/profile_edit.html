@@ -10,28 +10,44 @@
 
 <body>
     <div id="app">
-        <label for="student_id">Student ID:</label>
-        <input type="text" id="student_id" name="student_id">
+        <h1>プロフィール更新</h1><br>
+        学籍番号<input type="text" id="student_id" name="student_id"><br>
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+        名前<input type="text" id="name" name="name"><br>
 
-        <label for="age">Age:</label>
-        <input type="text" id="age" name="age">
+        年齢<input type="text" id="age" name="age"><br>
 
-        <label for="hobby_id">Hobby ID:</label>
-        <input type="text" id="hobby_id" name="hobby_id">
+        趣味<input type="text" id="hobby_id" name="hobby_id"><br>
 
-        <label for="introduction">Introduction:</label>
-        <input type="text" id="introduction" name="introduction">
+        自己紹介<textarea id="introduction" name="introduction" rows="4" cols="50"></textarea><br>
 
-        <button id="submit-btn">Edit Profile</button>
+        <button id="submit-btn">編集</button><br>
+        <div id="response"></div>
     </div>
 
     <!-- JSONを扱うためのCDN -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
+    // 予定のダミーデータ
+    const userData = {
+        student_id: "1111111",
+        name: "たけし",
+        age: "25",
+        hobby_id: "3",
+        introduction: "I love coding!"
+    };
+
+    // ページのロード時に入力フィールドを初期化
+    window.onload = function() {
+        Object.keys(userData).forEach(key => {
+            const inputElement = document.getElementById(key);
+            if (inputElement) {
+                inputElement.value = userData[key];
+            }
+        });
+    };
+
     document.getElementById('submit-btn').addEventListener('click', function() {
         const fields = ['student_id', 'name', 'age', 'hobby_id', 'introduction'];
         const formData = new FormData();
@@ -49,6 +65,9 @@
         })
         .then(function(response) {
             console.log(response);
+            const responseElement = document.createElement('p');
+                    responseElement.textContent = JSON.stringify(response.data);
+                    document.getElementById('response').appendChild(responseElement);
         })
         .catch(function(error) {
             console.log(error);
