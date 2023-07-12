@@ -12,16 +12,12 @@ class createDAO {
 
     public function create($student_id, $name, $age, $gender, $password, $hobby_id) {
           // Check if student_id is null
-          if ($student_id === null || $student_id === '') {
+        if ($student_id === null || $student_id === '') {
             return array(
                 'Create' => false,
                 'Message' => '学籍番号入力して',
             );
         }
-      
-
-      
-
         // Check if student_id has 7 digits
         if (strlen((string)$student_id) !== 7) {
             return array(
@@ -35,9 +31,7 @@ class createDAO {
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
         $stmt->execute();
-
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
         // If the student_id already exists, return an error message
         if ($user) {
             return array(
@@ -45,7 +39,6 @@ class createDAO {
                 'Message' => '学籍番号がすでに存在しているよ',
             );
         }
-
         // Check if name is null
         if ($name === null|| $name === '') {
             return array(
@@ -53,7 +46,6 @@ class createDAO {
                 'Message' => '名前がNullだよ',
             );
         }
-
         // Check if age is null or not within the range 18-60
         if ($age === null || $age < 18 || $age > 60) {
             return array(
@@ -61,8 +53,6 @@ class createDAO {
                 'Message' => '正しい年齢を入力して',
             );
         }
-
-   
         // Check if gender is null
         if ($gender === null|| $gender === '') {
             return array(
@@ -84,7 +74,6 @@ class createDAO {
                 'Message' => '趣味を選択してね',
             );
         }
-
         // If all checks pass, insert new user profile
         $sql = "INSERT INTO Users (student_id, name, age, gender, password, hobby_id) VALUES (:student_id, :name, :age, :gender, :password, :hobby_id)";
         $stmt = $this->pdo->prepare($sql);
