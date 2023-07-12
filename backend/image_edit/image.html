@@ -3,10 +3,11 @@
 
 <body>
     <div id="uploadDiv">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload"><br>
-        <input type="text" name="student_id" id="student_id" placeholder="student_id"> <br>
-        <input type="button" value="Upload Image" id="uploadButton">
+        <h1>画像変更</h1><br>
+        画像<input type="file" name="fileToUpload" id="fileToUpload"><br>
+        学籍番号<input type="text" name="student_id" id="student_id" placeholder="student_id"><br>
+        <input type="button" value="変更" id="uploadButton"><br>
+        <div id="response"></div><br>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
@@ -28,6 +29,9 @@
                 })
                 .then(function (response) {
                     console.log(response);
+                    const responseElement = document.createElement('p');
+                    responseElement.textContent = JSON.stringify(response.data);
+                    document.getElementById('response').appendChild(responseElement);
                 })
                 .catch(function (error) {
                     console.log(error);
