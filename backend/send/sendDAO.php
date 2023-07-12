@@ -12,13 +12,12 @@ class sendDAO {
 
     public function send($sender_id, $message, $match_id) {
         // Insert the message
-        $sql = "INSERT INTO Chat (sender_id, message, match_id, time) VALUES (:sender_id, :message, :match_id, NOW())";
+        $sql = "INSERT INTO Chats (sender_id, message, match_id, time) VALUES (:sender_id, :message, :match_id, NOW())";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':sender_id', $sender_id, PDO::PARAM_INT);
         $stmt->bindValue(':message', $message, PDO::PARAM_STR);
         $stmt->bindValue(':match_id', $match_id, PDO::PARAM_INT);
         $stmt->execute();
-
         if($stmt->rowCount() > 0){
             return array(
                 'Success' => true,

@@ -39,7 +39,7 @@ class matchDAO {
         if ($existingMatching) {
             return array(
                 'Match' => false,
-                'Message' => 'Matching already exists.'
+                'Message' => 'すでにマッチングしています。'
             );
         }
     
@@ -55,7 +55,7 @@ class matchDAO {
         if (empty($possibleMatches)) {
             return array(
                 'Match' => false,
-                'Message' => 'No students found with the same hobby. You may want to consider changing your hobby.'
+                'Message' => '相手がいないようです。趣味を変更しましょう。'
             );
         }
     
@@ -74,7 +74,7 @@ class matchDAO {
         
                 return array(
                     'Match' => true,
-                    'Message' => 'A match has been found and added.',
+                    'Message' => 'マッチング成功',
                     'Matched Student' => $randomMatch['student_id'],
                     'Match ID' => $matchId
                 );
