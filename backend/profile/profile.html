@@ -10,10 +10,9 @@
 
 <body>
     <div id="app">
-        <label for="student_id">Student ID:</label>
-        <input type="text" id="student_id" name="student_id">
-
-        <button id="submit-btn">Get Profile</button>
+        学籍番号<input type="text" id="student_id"><br>
+        <button id="submit-btn">プロフィールを見る</button><br>
+        <img id="profile-image" src="" alt="Profile Image" width="200px" height="auto">
     </div>
 
     <!-- JSONを扱うためのCDN -->
@@ -33,7 +32,9 @@
             }
         })
         .then(function(response) {
-            console.log(response.data[0].Data[0].profile_image);
+console.log(response);
+   const imageUrl = response.data.Data.profile_image;
+        document.getElementById('profile-image').src = imageUrl;
         })
         .catch(function(error) {
             console.log(error);
