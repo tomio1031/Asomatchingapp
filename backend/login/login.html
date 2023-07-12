@@ -10,13 +10,11 @@
 
 <body>
     <div id="app">
-        <label for="student_id">Student ID:</label>
-        <input type="text" id="student_id" name="student_id">
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-
-        <button id="submit-btn">Login</button>
+        <h1>ログイン画面</h1>
+        学籍番号<input type="text" id="student_id"><br>
+        パスワード<input type="password" id="password"><br>
+        <button id="submit-btn">ログイン</button><br>
+        <div id="response"></div><br>
     </div>
 
     <!-- JSONを扱うためのCDN -->
@@ -40,6 +38,9 @@
         })
         .then(function(response) {
             console.log(response);
+            const responseElement = document.createElement('p');
+                    responseElement.textContent = JSON.stringify(response.data);
+                    document.getElementById('response').appendChild(responseElement);
         })
         .catch(function(error) {
             console.log(error);

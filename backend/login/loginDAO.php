@@ -11,6 +11,12 @@ class loginDAO {
     }
 
     public function login($student_id, $password) {
+        if ($student_id === null || $student_id === '') {
+            return array(
+                'Create' => false,
+                'Message' => '学籍番号入力して',
+            );
+        }
         // Check if the student_id exists
         $sql = "SELECT * FROM Users WHERE student_id = :student_id";
         $stmt = $this->pdo->prepare($sql);
@@ -23,7 +29,7 @@ class loginDAO {
         if (!$user) {
             return array(
                 'Login' => false,
-                'Message' => 'Student ID does not exist.',
+                'Message' => '学籍番号が存在しないよ',
             );
         }
         
@@ -31,14 +37,14 @@ class loginDAO {
         if ($user['password'] !== $password) {
             return array(
                 'Login' => false,
-                'Message' => 'Invalid password.',
+                'Message' => 'パスワードが違いま〜す',
             );
         }
 
         // If the student_id exists and password matches, return success
         return array(
             'Login' => true,
-            'Message' => 'Logged in successfully.',
+            'Message' => 'ログイン成功',
         );
     }
 }
