@@ -10,11 +10,9 @@
 
 <body>
     <div id="app">
-        <label for="student_id">Student ID:</label>
-        <!-- ID:<input type="text" id="id"><br> -->
-        MatchID:<input type="text" id="match_id"><br>
-
-        <button id="submit-btn">Get Profile</button>
+        マッチID<input type="text" id="match_id"><br>
+        <button id="submit-btn">読み取る</button>
+        <div id="response"></div><br>
     </div>
 
     <!-- JSONを扱うためのCDN -->
@@ -23,10 +21,8 @@
     <script>
     document.getElementById('submit-btn').addEventListener('click', function() {
         const formData = new FormData();
-        // const id = document.getElementById('id').value;
         const match_id = document.getElementById('match_id').value;
 
-        // formData.append('sender_id', id);
         formData.append('match_id', match_id);
         formData.append('read', '');
 
@@ -37,6 +33,9 @@
         })
         .then(function(response) {
             console.log(response);
+            const responseElement = document.createElement('p');
+                    responseElement.textContent = JSON.stringify(response.data);
+                    document.getElementById('response').appendChild(responseElement);
         })
         .catch(function(error) {
             console.log(error);
