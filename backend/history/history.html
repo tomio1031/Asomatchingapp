@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+</head>
+
+<body>
+    <div id="app">
+        学籍番号<input type="text" id="student_id"><br>
+
+        <button id="submit-btn">履歴</button><br>
+        <div id="response"></div><br>
+    </div>
+
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+    document.getElementById('submit-btn').addEventListener('click', function() {
+        const formData = new FormData();
+        const student_id = document.getElementById('student_id').value;
+
+        formData.append('student_id', student_id);
+        formData.append('history', '');
+
+        axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            console.log(response);
+            const responseElement = document.createElement('p');
+                    responseElement.textContent = JSON.stringify(response.data);
+                    document.getElementById('response').appendChild(responseElement);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    });
+    </script>
+</body>
+
+</html>
