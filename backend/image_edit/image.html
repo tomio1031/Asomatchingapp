@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="uploadDiv">
+        <h1>画像変更</h1><br>
+        画像<input type="file" name="fileToUpload" id="fileToUpload"><br>
+        学籍番号<input type="text" name="student_id" id="student_id" placeholder="student_id"><br>
+        <input type="button" value="変更" id="uploadButton"><br>
+        <div id="response"></div><br>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById('uploadButton').addEventListener('click', function (e) {
+            e.preventDefault(); 
+
+            let student_id = document.getElementById('student_id').value;
+            let fileToUpload = document.getElementById('fileToUpload').files[0];
+
+            let formData = new FormData();
+            formData.append('student_id', student_id);
+            formData.append('fileToUpload', fileToUpload);
+            formData.append('image_edit', 'true');
+
+            axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                    const responseElement = document.createElement('p');
+                    responseElement.textContent = JSON.stringify(response.data);
+                    document.getElementById('response').appendChild(responseElement);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        });
+    </script>
+
+</body>
+
+</html>
