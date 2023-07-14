@@ -12,13 +12,16 @@ class ProfileDAO {
 
     public function getProfile($student_id) {
         // Check if the student_id exists
-        $sql = "SELECT name, age, hobby_id, introduction, profile_image FROM Users WHERE student_id = :student_id";
+        $sql = "SELECT u.name, u.age, u.introduction, u.profile_image, h.hobby 
+                FROM Users u 
+                INNER JOIN Hobbies h ON u.hobby_id = h.id 
+                WHERE u.student_id = :student_id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
         $stmt->execute();
-
+    
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
         // If the student_id does not exist, return an error message
         if (!$user) {
             return array(
@@ -26,7 +29,7 @@ class ProfileDAO {
                 'Message' => 'Student ID does not exist.',
             );
         }
-
+    
         // If the student_id exists, return user profile
         return array(
             'Profile' => true,
@@ -34,5 +37,6 @@ class ProfileDAO {
             'Data' => $user
         );
     }
+    
 }
 ?>
