@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asotalk</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        .top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 30%;
+        }
+
+        .gyar {
+            width: 15%;
+        }
+
+        .image {
+            width: 30%;
+            margin: 10% auto 5% auto;
+            display: flex;
+        }
+
+        .center {
+            display: flex;
+            text-align: center;
+            margin: 0 auto;
+            justify-content: center;
+            font-size: 150%;
+        }
+
+        .hobby {
+            text-align: center;
+            font-size: 120%;
+        }
+
+        .introduction {
+            text-align: center;
+            padding: 10px;
+            margin: 5% 0 0 5%;
+            font-size: 100%;
+        }
+
+        .hobby_text {
+            margin: 5% 0 0 5%;
+            font-size: 120%;
+        }
+
+        .introduction_text {
+            margin: 5% 0 0 5%;
+            font-size: 110%;
+        }
+
+        .image_text {
+            margin: 10% 0 0 5%;
+            font-size: 120%;
+        }
+
+        .file {
+            margin: 0 auto;
+            padding: 10% 0 0 0;
+        }
+
+        .image_box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .button {
+            display: flex;
+            margin: 5% 10% 0 auto;
+
+        }
+        .line {
+            margin-top: 5%;
+            width: 100vw;
+            height: 5px;
+            background-color: #6fc2fc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <img class="logo" src="http://learning-sql.kikirara.jp/asotalk_blue.png">
+        <img src="https://icon-pit.com/wp-content/uploads/2018/12/haguruma_gear_icon_3737.png" class="gyar">
+    </div>
+    <img id="profile-image" src="" class="image">
+    <div class="center">
+        <div id="name"></div>,
+        <div id="age"></div>
+    </div>
+    <div class="line"></div>
+    <div class="image_box">
+        <div class="image_text">画像</div>
+        <input type="file" class="file" id="fileToUpload">  
+    </div>
+    <input type="button" value="変更" id="uploadButton" class="button">
+    <div class="hobby_text">趣味</div>
+    <div id="hobby" class="hobby"></div>
+    <div class="introduction_text">自己紹介</div>
+    <div id="introduction" class="introduction"></div>
+
+    <script>
+        window.onload = function () {
+            const formData = new FormData();
+            // const student_id = document.getElementById('student_id').value;
+            // formData.append('student_id', student_id);
+            formData.append('student_id', 1);
+            formData.append('profile', '');
+
+            axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                    const url = response.data.Data.profile_image;
+                    const name = response.data.Data.name;
+                    const age = response.data.Data.age;
+                    const introduction = response.data.Data.introduction;
+                    const hobby = response.data.Data.hobby;
+                    document.getElementById('name').innerText = name;
+                    document.getElementById('age').innerText = age;
+                    document.getElementById('introduction').innerText = introduction;
+                    document.getElementById('hobby').innerText = hobby;
+                    document.getElementById('profile-image').src = url;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        };
+        document.getElementById('uploadButton').addEventListener('click', function (e) {
+            e.preventDefault(); 
+
+            // let student_id = document.getElementById('student_id').value;
+            let fileToUpload = document.getElementById('fileToUpload').files[0];
+
+            let formData = new FormData();
+            formData.append('student_id', 1);
+            formData.append('fileToUpload', fileToUpload);
+            formData.append('image_edit', '');
+
+            axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                    location.reload();
+                    // const responseElement = document.createElement('p');
+                    // responseElement.textContent = JSON.stringify(response.data);
+                    // document.getElementById('response').appendChild(responseElement);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        });
+    </script>
+</body>
+
+
+</html>
