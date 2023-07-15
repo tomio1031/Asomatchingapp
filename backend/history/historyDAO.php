@@ -15,7 +15,7 @@ class historyDAO {
                 CASE 
                     WHEN user_id = :student_id THEN matched_id
                     WHEN matched_id = :student_id THEN user_id
-                END AS other_student_id
+                END AS matched_id
                 FROM Matches 
                 WHERE status = 'matched' 
                 AND (user_id = :student_id OR matched_id = :student_id)";
