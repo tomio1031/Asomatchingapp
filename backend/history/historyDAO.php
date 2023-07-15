@@ -11,25 +11,33 @@ class historyDAO {
     }
 
     public function history($student_id) {
-        $sql = "SELECT id FROM Matches WHERE status = 'matched' AND (user_id = :student_id OR matched_id = :student_id)";
+        $sql = "SELECT id,
+                CASE 
+                    WHEN user_id = :student_id THEN matched_id
+                    WHEN matched_id = :student_id THEN user_id
+                END AS other_student_id
+                FROM Matches 
+                WHERE status = 'matched' 
+                AND (user_id = :student_id OR matched_id = :student_id)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
         $stmt->execute();
-
+    
         $matchedRows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    
         if (empty($matchedRows)) {
             return array(
                 'Success' => false,
                 'Message' => 'トーク履歴がありません。'
             );
         }
-
+    
         return array(
             'Success' => true,
             'Matched Rows' => $matchedRows
         );
     }
+    
 }
 
 ?>
