@@ -34,7 +34,7 @@ class historyDAO {
     
         return array(
             'Success' => true,
-            'Matched Rows' => $matchedRows
+            'Matched' => $matchedRows
         );
     }
     
