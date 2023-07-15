@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+</head>
+<style>
+    body {
+        background-color: #cee9fb;
+        padding: 0%;
+        margin: 0%;
+    }
+
+    .topName {
+        text-align: center;
+        font-size: 120%;
+    }
+
+    .image {
+        margin: 5% auto;
+        display: flex;
+        width: 90%;
+    }
+
+    .white {
+        width: 100%;
+        height: 30vh;
+        border-radius: 50px 50px 0 0;
+        background-color: aqua;
+        position: relative;
+    }
+
+    .name {
+        font-size: 120%;
+        margin: 5% 5% 0 0;
+    }
+
+    .flex {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    .age {
+        font-size: 120%;
+        margin: 5% 5% 0 0;
+    }
+    .gender {
+        font-size: 120%;
+        margin: 5% 5% 0 0;
+    }
+    .introduction {
+        margin: 5% auto;
+        display: flex;
+        width: 80%;
+        height: 50%;
+        background-color: transparent;
+        border-color: transparent;
+        font-size: 120%;
+    }
+    .message {
+        position: absolute;
+        right: 10%;
+        top: -25%;
+    }
+</style>
+
+<body>
+    <p id="name" class="topName"></p>
+    <img id="profile_image" src="" class="image">
+    <div class="white">
+        <div class="flex">
+            <img src="http://learning-sql.kikirara.jp/message.png" class="message">
+            <p id="name2" class="name"></p>
+            <p id="age" class="age"></p>
+            <p id="gender" class="gender"></p>
+        </div>
+        <textarea id="introduction" class="introduction"></textarea>
+    </div>
+
+
+
+
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        window.onload = function () {
+            const userData = {
+                matched_id: '',
+                name: '',
+                gender: '',
+                age: '',
+                introduction: '',
+                profile_image: '',
+            };
+            const formData = new FormData();
+
+            formData.append('student_id', 1111111);
+            formData.append('check', '');
+
+            axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(function (response) {
+                    // console.log(response);
+                    // userData.matched_id = response.data[0].other_student_id;
+                    userData.matched_id = 1;
+                    // console.log(userData.matched_id);
+
+                    const formData2 = new FormData();
+                    formData2.append('student_id', userData.matched_id);
+                    formData2.append('profile', '');
+
+                    axios.post('http://learning-sql.kikirara.jp/main.php', formData2, {
+                            headers: {
+                                'Content-Type': 'multipart/form-data'
+                            }
+                        })
+                        .then(function (response) {
+                            console.log(response.data.Data);
+                            userData.name = response.data.Data.name;
+                            userData.age = response.data.Data.age;
+                            userData.gender = response.data.Data.gender;
+                            userData.introduction = response.data.Data.introduction;
+                            userData.profile_image = response.data.Data.profile_image;
+                            // console.log(userData);
+                            document.getElementById('name').textContent = userData.name;
+                            document.getElementById('name2').textContent = userData.name;
+                            document.getElementById('age').textContent = userData.age;
+                            document.getElementById('gender').textContent = userData.gender;
+                            document.getElementById('introduction').textContent = userData.introduction;
+                            document.getElementById('profile_image').src = userData.profile_image;
+
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    </script>
+</body>
+
+</html>
