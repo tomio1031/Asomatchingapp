@@ -24,31 +24,64 @@
         }
 
         #message-container {
-            height: 500px;
-            overflow-y: auto;
+            margin: 5% 0 auto 0 ;
+            height: 70vh;
+            overflow-y: scroll;
             display: flex;
             flex-direction: column-reverse;
+        }
+        .flex {
+            display: flex;
+            justify-content: space-around;
+        }
+        .back {
+            font-size: 150%;
+            align-items: center;
+        }
+        .under {
+            margin: auto 0 0 0;
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+        .input {
+            width: 40vw;
+        }
+        .me {
+            font-size: 120%;
+        }
+        .send {
+            font-size: 110%;
         }
     </style>
 </head>
 
 <body>
+    <div class="flex">
+    <div class="back">←</div>
+    <div class="name"></div>
 <button id="block">ブロック</button>
 <button id="friend">友達申請</button>
+</div>
     <div id="message-container"></div>
-        メッセージ<input type="text" id="message"><br>
+    <div class="under">
+    <div class="me">メッセージ</div>
+        <input type="text" id="message" class="input">
 
-        <button id="submit-btn">送信</button><br>
+        <button id="submit-btn" class="send">送信</button>
+    </div>
 
     <!-- JSONを扱うためのCDN -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
     window.onload = function () {
+        let yourString = "あなたの文字列"; 
+document.querySelector('.name').innerText = yourString;  
         const formData = new FormData();
         // const currentStudentId = localStorage.getItem("studentId"); // 学籍番号をローカルストレージから取得
-        const currentStudentId = 3;
-        formData.append('match_id', 15);
+        const currentStudentId = 1111113;
+        formData.append('match_id', 10);
         formData.append('read', '');
 
         axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
@@ -154,9 +187,6 @@ function FrinedFunction() {
             console.log(response);
             // 
             const formData = new FormData();
-        // const id = document.getElementById('id').value;
-        // const match_id = document.getElementById('match_id').value;
-        // const message = document.getElementById('message').value;
 
         formData.append('sender_id', 2101005);
         formData.append('match_id', 15);
