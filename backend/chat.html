@@ -33,7 +33,8 @@
 </head>
 
 <body>
-
+<button id="block">ブロック</button>
+<button id="friend">友達申請</button>
     <div id="message-container"></div>
         メッセージ<input type="text" id="message"><br>
 
@@ -46,8 +47,8 @@
     window.onload = function () {
         const formData = new FormData();
         // const currentStudentId = localStorage.getItem("studentId"); // 学籍番号をローカルストレージから取得
-        const currentStudentId = 1111113;
-        formData.append('match_id', 10);
+        const currentStudentId = 3;
+        formData.append('match_id', 15);
         formData.append('read', '');
 
         axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
@@ -102,6 +103,85 @@
             console.log(error);
         });
     });
+    document.getElementById("block").addEventListener("click", function() {
+    const confirmAction = confirm("注意: マッチングを解除します。OKを押すと進行します。");
+    if (confirmAction) {
+        BlockFunction();
+    }
+});
+
+function BlockFunction() {
+    const formData = new FormData();
+        // const id = document.getElementById('id').value;
+
+        formData.append('id', 13);
+        formData.append('block', '');
+
+        axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    // ここにブロックに関連するコードを書く
+    alert("マッチングが解除されました");
+}
+document.getElementById("friend").addEventListener("click", function() {
+    const confirmAction = confirm("注意: 友達申請を行います。OKを押すと進行します。");
+    if (confirmAction) {
+        FrinedFunction();
+    }
+});
+
+function FrinedFunction() {
+    const formData = new FormData();
+        // const id = document.getElementById('id').value;
+
+        formData.append('id', 15);
+        formData.append('friend', '');
+
+        axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            console.log(response);
+            // 
+            const formData = new FormData();
+        // const id = document.getElementById('id').value;
+        // const match_id = document.getElementById('match_id').value;
+        // const message = document.getElementById('message').value;
+
+        formData.append('sender_id', 2101005);
+        formData.append('match_id', 15);
+        formData.append('send', '');
+        formData.append('message', '学籍番号'+3);
+
+        axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+        })
+        // 
+        .catch(function(error) {
+            console.log(error);
+        });
+    // ここにブロックに関連するコードを書く
+    alert("マッチングが解除");
+}
     </script>
 </body>
 
