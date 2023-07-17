@@ -243,10 +243,10 @@ button.btn {
                                 console.log(response);
                                 if(JSON.stringify(response.data.Match) == "true") {
                                     localStorage.setItem('match_id',response.data.Match_id);
-                                    // location.href = 
+                                    location.href = 'http://learning-sql.kikirara.jp/home.html';
                                 }else {
-                                    // location.href = 
                                     localStorage.setItem('match_id', null);
+                                    location.href = 'http://learning-sql.kikirara.jp/home.html';
                                 }
 
                             })
