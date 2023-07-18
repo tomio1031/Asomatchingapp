@@ -89,7 +89,7 @@
 <body>
     <div class="top">
         <img class="logo" src="http://learning-sql.kikirara.jp/asotalk_blue.png">
-        <img src="https://icon-pit.com/wp-content/uploads/2018/12/haguruma_gear_icon_3737.png" class="gyar">
+        <img src="https://icon-pit.com/wp-content/uploads/2018/12/haguruma_gear_icon_3737.png" class="gyar" onclick="locationEdit()">
     </div>
     <img id="profile-image" src="" class="image">
     <div class="center">
@@ -108,11 +108,11 @@
     <div id="introduction" class="introduction"></div>
 
     <script>
+        var student_id = localStorage.getItem('student_id');
         window.onload = function () {
             const formData = new FormData();
-            // const student_id = document.getElementById('student_id').value;
-            // formData.append('student_id', student_id);
-            formData.append('student_id', 1);
+            
+            formData.append('student_id', student_id);
             formData.append('profile', '');
 
             axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
@@ -140,11 +140,10 @@
         document.getElementById('uploadButton').addEventListener('click', function (e) {
             e.preventDefault(); 
 
-            // let student_id = document.getElementById('student_id').value;
             let fileToUpload = document.getElementById('fileToUpload').files[0];
 
             let formData = new FormData();
-            formData.append('student_id', 1);
+            formData.append('student_id', student_id);
             formData.append('fileToUpload', fileToUpload);
             formData.append('image_edit', '');
 
@@ -156,14 +155,14 @@
                 .then(function (response) {
                     console.log(response);
                     location.reload();
-                    // const responseElement = document.createElement('p');
-                    // responseElement.textContent = JSON.stringify(response.data);
-                    // document.getElementById('response').appendChild(responseElement);
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
         });
+        function locationEdit() {
+            location.href = ''
+        }
     </script>
 </body>
 
