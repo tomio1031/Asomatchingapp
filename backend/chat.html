@@ -194,6 +194,22 @@ function BlockFunction() {
         })
         .then(function(response) {
             console.log(response);
+            const formData = new FormData();
+
+                        formData.append('student_id', student_id);
+                        formData.append('match', '');
+
+                        axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            })
+                            .then(function (response) {
+                                console.log(response);
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
         })
         .catch(function(error) {
             console.log(error);
@@ -237,6 +253,22 @@ function FrinedFunction() {
         })
         .then(function(response) {
             console.log(response);
+            const formData = new FormData();
+
+                        formData.append('student_id', student_id);
+                        formData.append('match', '');
+
+                        axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            })
+                            .then(function (response) {
+                                console.log(response);
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
         })
         .catch(function(error) {
             console.log(error);
