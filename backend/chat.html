@@ -75,13 +75,14 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
+          // localStorage.setItem('student_id', 1111112);
+          const student_id = localStorage.getItem('student_id');
+        const matched_id = localStorage.getItem('match_id');
+        const history_name = localStorage.getItem('history_name');
     window.onload = function () {
-        let yourString = "あなたの文字列"; 
-document.querySelector('.name').innerText = yourString;  
+document.querySelector('.name').innerText = history_name;  
         const formData = new FormData();
-        // const currentStudentId = localStorage.getItem("studentId"); // 学籍番号をローカルストレージから取得
-        const currentStudentId = 1111113;
-        formData.append('match_id', 10);
+        formData.append('match_id', matched_id);
         formData.append('read', '');
 
         axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
@@ -100,7 +101,7 @@ document.querySelector('.name').innerText = yourString;
             messageElement.textContent = messageData.message;
             
             // sender_idを数値に変換して比較
-            if (Number(messageData.sender_id) === currentStudentId) {
+            if (Number(messageData.sender_id) == student_id) {
                 messageElement.classList.add('mine');
             } else {
                 messageElement.classList.add('theirs');
@@ -118,8 +119,8 @@ document.querySelector('.name').innerText = yourString;
         const formData = new FormData();
         const message = document.getElementById('message').value;
 
-        formData.append('sender_id', 1111113);
-        formData.append('match_id', 10);
+        formData.append('sender_id', student_id);
+        formData.append('match_id', matched_id);
         formData.append('send', '');
         formData.append('message', message);
 
@@ -147,7 +148,7 @@ function BlockFunction() {
     const formData = new FormData();
         // const id = document.getElementById('id').value;
 
-        formData.append('id', 13);
+        formData.append('id', matched_id);
         formData.append('block', '');
 
         axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
@@ -175,7 +176,7 @@ function FrinedFunction() {
     const formData = new FormData();
         // const id = document.getElementById('id').value;
 
-        formData.append('id', 15);
+        formData.append('id', matched_id);
         formData.append('friend', '');
 
         axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
@@ -188,10 +189,10 @@ function FrinedFunction() {
             // 
             const formData = new FormData();
 
-        formData.append('sender_id', 2101005);
-        formData.append('match_id', 15);
+        formData.append('sender_id', student_id);
+        formData.append('match_id', matched_id);
         formData.append('send', '');
-        formData.append('message', '学籍番号'+3);
+        formData.append('message', '学籍番号'+student_id);
 
         axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
             headers: {
