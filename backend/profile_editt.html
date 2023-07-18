@@ -14,13 +14,16 @@
             align-items: center;
             margin: 5% 0 0 0;
         }
+
         .name {
             margin: 0 10% 0 0;
         }
+
         .name_field {
             height: 100%;
             width: 20vh;
         }
+
         .top {
             display: flex;
             justify-content: space-between;
@@ -28,40 +31,46 @@
             margin: 5% 0 0 0;
             align-items: center;
         }
+
         .back {
             font-size: 200%;
             padding: 0 0 0 5%;
         }
+
         .pagename {
             font-size: 120%;
         }
+
         .done {
             padding: 0 5% 0 0;
             font-size: 110%;
         }
+
         .intrText {
             margin: 5% 0 0 5%;
         }
+
         .area {
             margin: 5% auto 0 auto;
             display: flex;
             width: 80%;
             height: 20vh;
         }
+
         .bottom-menu {
-    position:fixed;
-    bottom:0px;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-  
-  .bottom-menu a {
-    text-decoration: none;
-    color: #333;
-    padding: 10px;
-    margin: 0 20px;
-}
+            position: fixed;
+            bottom: 0px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .bottom-menu a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            margin: 0 20px;
+        }
     </style>
 </head>
 
@@ -73,43 +82,43 @@
     </div>
     <div class="field">
         <div class="name">名前</div>
-    <input type="text" id="name" class="name_field">
-</div>
-<div class="field">
-    <div class="name">年齢</div>
-    <input type="text" id="age" class="name_field">
-</div>
-<div class="field">
-    <div class="name">趣味</div>
-    <select id="hobby_id" name="hobby_id" class="name_field">
-        <option value="1">選択してください</option>
-        <option value="2">食事</option>
-        <option value="3">カフェ</option>
-        <option value="4">ゲーム</option>
-    </select>
-</div>
-<div class="intrText">自己紹介</div>
+        <input type="text" id="name" class="name_field">
+    </div>
+    <div class="field">
+        <div class="name">年齢</div>
+        <input type="text" id="age" class="name_field">
+    </div>
+    <div class="field">
+        <div class="name">趣味</div>
+        <select id="hobby_id" name="hobby_id" class="name_field">
+            <option value="1">選択してください</option>
+            <option value="2">食事</option>
+            <option value="3">カフェ</option>
+            <option value="4">ゲーム</option>
+        </select>
+    </div>
+    <div class="intrText">自己紹介</div>
 
     <textarea id="introduction" name="introduction" class="area"></textarea>
     <div class="bottom-menu">
         <a href="http://learning-sql.kikirara.jp/home.html">
             <!-- <div class="Your"> -->
-                <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
+            <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
             <!-- </div> -->
         </a>
 
         <a href="http://learning-sql.kikirara.jp/historyy.html">
             <!-- <button class="List"> -->
-                <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
+            <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
             <!-- </button> -->
         </a>
-        
+
         <a href="http://learning-sql.kikirara.jp/profilee.html">
             <!-- <button class="My"> -->
-                <img src="http://learning-sql.kikirara.jp/uploads/p.png" width="30px" height="auto">
+            <img src="http://learning-sql.kikirara.jp/uploads/p.png" width="30px" height="auto">
             <!-- </button> -->
         </a>
-      </div>  
+    </div>
     <script>
         function locationp() {
             location.href = 'http://learning-sql.kikirara.jp/profilee.html'
@@ -192,6 +201,22 @@
                     })
                     .then(function (response) {
                         console.log(response);
+                        const formData = new FormData();
+
+                        formData.append('student_id', student_id);
+                        formData.append('match', '');
+
+                        axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            })
+                            .then(function (response) {
+                                console.log(response);
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
                         location.reload();
                     })
                     .catch(function (error) {
