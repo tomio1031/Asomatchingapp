@@ -131,9 +131,9 @@
                 profile_image: '',
             };
             const formData = new FormData();
-// var student_id = localStorage.getItem('student_id');
+var student_id = localStorage.getItem('student_id');
             // formData.append('student_id', student_id);
-            formData.append('student_id', 2);
+            formData.append('student_id', student_id);
             formData.append('check', '');
 
             axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
