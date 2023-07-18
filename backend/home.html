@@ -123,6 +123,7 @@
     <script>
         window.onload = function () {
             const userData = {
+                matched_student_id: '',
                 matched_id: '',
                 name: '',
                 gender: '',
@@ -146,10 +147,13 @@ var student_id = localStorage.getItem('student_id');
                         document.getElementById('profile_image').src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzHPvMlWAEj5EW1mmSjU_II1orfisTnkr6hg&usqp=CAU';
                     }else {
                         console.log(response);
-                    userData.matched_id = response.data[0].other_student_id;
-                    // localStorage.setItem('matched_id', userData.matched_id);   need?
+                    userData.matched_student_id = response.data[0].other_student_id;
+                  
+                    userData.matched_id = response.data[0].id;
+                    localStorage.setItem('match_id', matched_id);
+                    // localStorage.setItem('matched_id', userData.matched_student_id);
                     const formData2 = new FormData();
-                    formData2.append('student_id', userData.matched_id);
+                    formData2.append('student_id', userData.matched_student_id);
                     formData2.append('profile', '');
 
                     axios.post('http://learning-sql.kikirara.jp/main.php', formData2, {
