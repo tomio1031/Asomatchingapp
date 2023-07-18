@@ -79,6 +79,7 @@
     <textarea id="introduction" name="introduction" class="area"></textarea>
     
     <script>
+        var student_id = localStorage.getItem('student_id');
         window.onload = function () {
             const userData = {
                 name: '',
@@ -96,7 +97,7 @@
             };
 
             const formData = new FormData();
-            formData.append('student_id', 1);
+            formData.append('student_id', student_id);
             formData.append('profile', '');
 
             axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
@@ -143,7 +144,7 @@
                 const introduction = document.getElementById('introduction').value;
 
                 formData.append("profile_edit", '');
-                formData.append("student_id", 1);
+                formData.append("student_id", student_id);
                 formData.append("name", name);
                 formData.append("age", age);
                 formData.append("hobby_id", hobby_id);
@@ -156,6 +157,7 @@
                     })
                     .then(function (response) {
                         console.log(response);
+                        location.reload();
                     })
                     .catch(function (error) {
                         console.log(error);
