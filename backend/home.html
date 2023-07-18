@@ -73,7 +73,7 @@
     <img id="profile_image" src="" class="image">
     <div class="white">
         <div class="flex">
-            <img src="http://learning-sql.kikirara.jp/message.png" class="message">
+            <img src="http://learning-sql.kikirara.jp/message.png" class="message" onclick="locationChat()">
             <p id="name2" class="name"></p>
             <p id="age" class="age"></p>
             <p id="gender" class="gender"></p>
@@ -98,8 +98,9 @@
                 profile_image: '',
             };
             const formData = new FormData();
-
-            formData.append('student_id', 1111111);
+// var student_id = localStorage.getItem('student_id');
+            // formData.append('student_id', student_id);
+            formData.append('student_id', 2);
             formData.append('check', '');
 
             axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
@@ -108,11 +109,12 @@
                     }
                 })
                 .then(function (response) {
-                    // console.log(response);
-                    // userData.matched_id = response.data[0].other_student_id;
-                    userData.matched_id = 1;
-                    // console.log(userData.matched_id);
-
+                    if (JSON.stringify(response.data.check) == "false") {
+                        document.getElementById('profile_image').src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzHPvMlWAEj5EW1mmSjU_II1orfisTnkr6hg&usqp=CAU';
+                    }else {
+                        console.log(response);
+                    userData.matched_id = response.data[0].other_student_id;
+                    // localStorage.setItem('matched_id', userData.matched_id);   need?
                     const formData2 = new FormData();
                     formData2.append('student_id', userData.matched_id);
                     formData2.append('profile', '');
@@ -141,10 +143,15 @@
                         .catch(function (error) {
                             console.log(error);
                         });
+                    }
+                 
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
+        }
+        function locationChat() {
+            // location.href = ''
         }
     </script>
 </body>
