@@ -150,7 +150,7 @@ var student_id = localStorage.getItem('student_id');
                     userData.matched_student_id = response.data[0].other_student_id;
                   
                     userData.matched_id = response.data[0].id;
-                    localStorage.setItem('match_id', matched_id);
+                    localStorage.setItem('match_id', userData.matched_id);
                     // localStorage.setItem('matched_id', userData.matched_student_id);
                     const formData2 = new FormData();
                     formData2.append('student_id', userData.matched_student_id);
