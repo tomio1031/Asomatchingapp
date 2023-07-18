@@ -30,11 +30,37 @@
         text-align: center;
         font-size: 150%;
     }
+    .bottom-menu {
+    position:fixed;
+    bottom:0px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+  
+  .bottom-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    margin: 0 20px;
+}
 </style>
 
 <body>
-<div class="title">Message</div>
-
+    <div class="title">Message</div>
+    <!-- Here we create a new div element to hold the buttons that will be generated -->
+    <div id="dynamic-buttons"></div>
+    <div class="bottom-menu">
+        <a href="http://learning-sql.kikirara.jp/home.html">
+            <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
+        </a>
+        <a href="http://learning-sql.kikirara.jp/historyy.html">
+            <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
+        </a>
+        <a href="http://learning-sql.kikirara.jp/profilee.html">
+            <img src="http://learning-sql.kikirara.jp/uploads/p.png" width="30px" height="auto">
+        </a>
+    </div>
     <!-- JSONを扱うためのCDN -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -92,12 +118,13 @@
             btn.appendChild(div);
 
             btn.addEventListener("click", function() {
-                // Store the clicked button's id and name into localStorage
-                localStorage.setItem('history_match_id', this.id);
-                localStorage.setItem('history_name', name);
-            });
+    // Store the clicked button's id and name into localStorage
+    localStorage.setItem('history_match_id', this.id);
+    localStorage.setItem('history_name', name);
+});
 
-            document.body.appendChild(btn);
+// Append the button to the "dynamic-buttons" div instead of the body
+document.getElementById('dynamic-buttons').appendChild(btn);
         })
         .catch(function (error) {
             console.log(error);

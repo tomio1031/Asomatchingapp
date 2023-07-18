@@ -66,6 +66,20 @@
         right: 10%;
         top: -25%;
     }
+    .bottom-menu {
+    position:fixed;
+    bottom:0px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+  
+  .bottom-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    margin: 0 20px;
+}
 </style>
 
 <body>
@@ -80,6 +94,25 @@
         </div>
         <textarea id="introduction" class="introduction"></textarea>
     </div>
+    <div class="bottom-menu">
+        <a href="http://learning-sql.kikirara.jp/home.html">
+            <!-- <div class="Your"> -->
+                <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
+            <!-- </div> -->
+        </a>
+
+        <a href="http://learning-sql.kikirara.jp/historyy.html">
+            <!-- <button class="List"> -->
+                <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
+            <!-- </button> -->
+        </a>
+        
+        <a href="http://learning-sql.kikirara.jp/profilee.html">
+            <!-- <button class="My"> -->
+                <img src="http://learning-sql.kikirara.jp/uploads/p.png" width="30px" height="auto">
+            <!-- </button> -->
+        </a>
+      </div>  
 
 
 
@@ -151,7 +184,7 @@
                 });
         }
         function locationChat() {
-            // location.href = ''
+            location.href = 'http://learning-sql.kikirara.jp/chat.html'
         }
     </script>
 </body>

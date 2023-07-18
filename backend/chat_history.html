@@ -53,28 +53,58 @@
         .send {
             font-size: 110%;
         }
+        .bottom-menu {
+    position:fixed;
+    bottom:0px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+  
+  .bottom-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    margin: 0 20px;
+}
     </style>
 </head>
 
 <body>
     <div class="flex">
-    <div class="back">←</div>
+    <div class="back" onclick="seni()">←</div>
     <div class="name"></div>
 <!-- <button id="block">ブロック</button> -->
 <!-- <button id="friend">友達申請</button> -->
 </div>
     <div id="message-container"></div>
-    <!-- <div class="under">
-    <div class="me">メッセージ</div>
-        <input type="text" id="message" class="input"> -->
+    <div class="bottom-menu">
+        <a href="http://learning-sql.kikirara.jp/home.html">
+            <!-- <div class="Your"> -->
+                <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
+            <!-- </div> -->
+        </a>
 
-        <!-- <button id="submit-btn" class="send">送信</button> -->
-    <!-- </div> -->
+        <a href="http://learning-sql.kikirara.jp/historyy.html">
+            <!-- <button class="List"> -->
+                <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
+            <!-- </button> -->
+        </a>
+        
+        <a href="http://learning-sql.kikirara.jp/profilee.html">
+            <!-- <button class="My"> -->
+                <img src="http://learning-sql.kikirara.jp/uploads/p.png" width="30px" height="auto">
+            <!-- </button> -->
+        </a>
+      </div>  
 
     <!-- JSONを扱うためのCDN -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
+        function seni() {
+            location.href = 'http://learning-sql.kikirara.jp/historyy.html'
+        }
         const student_id = localStorage.getItem('student_id');
         const matched_id = localStorage.getItem('history_match_id');
         const history_name = localStorage.getItem('history_name');
