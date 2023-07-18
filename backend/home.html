@@ -188,7 +188,9 @@ var student_id = localStorage.getItem('student_id');
                 });
         }
         function locationChat() {
+            localStorage.setItem('history_name', userData.name);
             location.href = 'http://learning-sql.kikirara.jp/chat.html'
+            
         }
     </script>
 </body>
