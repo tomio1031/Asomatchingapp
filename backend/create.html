@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/YourProflie.css">
+    <title>新規アカウント作成</title>
+    <meta charset="UTF-8">
+
+</head>
+<style>
+    body {
+        background-color: #eaf2fc;
+        height: 800px;
+    }
+
+    .logoimg {
+        width: 120px;
+        height: 60px;
+    }
+
+    .Your {
+        border: 3px solid #eaf2fc;
+        border-radius: 100px;
+        /* padding: 25px; */
+        box-sizing: border-box;
+        background: #eaf2fc;
+        color: #80A8ff;
+
+        text-align: left;
+        margin: 10px 0;
+        transition: 0.5s;
+    }
+
+    .cen {
+        text-align: center;
+
+    }
+
+    .radis {
+
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        line-height: 25px;
+
+    }
+
+    select {
+
+        width: 120px;
+        height: 30px;
+    }
+
+    .center {
+        text-align: center;
+        font-size: 30px;
+        line-height: 2.0;
+        font-weight: bold;
+        color: #80A8ff;
+        text-shadow: 0.02em 0.02em 0.02em rgba(0, 0, 0, 1);
+
+    }
+
+    .Your:hover {
+        color: #eaf2fc;
+        background: #80A8ff;
+    }
+
+    .List {
+        border: 3px solid #80A8ff;
+        border-radius: 100px;
+        padding: 25px;
+        box-sizing: border-box;
+        background: #eaf2fc;
+        color: #80A8ff;
+        text-decoration: none;
+        text-align: center;
+        margin: 10px 0;
+        transition: 0.5s;
+    }
+
+    .List:hover {
+        color: #eaf2fc;
+        background: #80A8ff;
+    }
+
+    .My {
+        border: 3px solid #80A8ff;
+        border-radius: 100px;
+        padding: 25px;
+        box-sizing: border-box;
+        background: #eaf2fc;
+        color: #80A8ff;
+        text-decoration: none;
+        text-align: right;
+        margin: 10px 0;
+        transition: 0.5s;
+    }
+
+    .My:hover {
+        color: #eaf2fc;
+        background: #80A8ff;
+    }
+
+
+
+    .tyui {
+        color: red;
+    }
+
+    .me {
+        margin-left: 10px;
+    }
+
+    .trim-image-to-circle {
+        width: 70px;
+        /* ※縦横を同値に */
+        height: 70px;
+        /* ※縦横を同値に */
+        border-radius: 50%;
+        /* 角丸半径を50%にする(=円形にする) */
+        background-position: center center;
+        /* 横長画像の左上を基準に表示 */
+        display: block;
+        /* 複数の画像を横に並べたい場合 */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /*新規*/
+    a.btn--orange {
+        color: #fff;
+        background-color: #eb6100;
+        border-bottom: 5px solid #b84c00;
+        margin-top: 30px;
+    }
+
+    a.btn--orange:hover {
+
+        color: #fff;
+        background: #f56500;
+        border-bottom: 2px solid #b84c00;
+    }
+
+    a.btn--shadow {
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    }
+
+    /*まずはお決まりのボックスサイズ算出をborer-boxに */
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 62.5%;
+        /*rem算出をしやすくするために*/
+    }
+
+    .btn,
+    a.btn,
+    button.btn {
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 1.5;
+        position: relative;
+        display: inline-block;
+        padding: 1rem 4rem;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        text-align: center;
+        vertical-align: middle;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        color: #212529;
+        border-radius: 0.5rem;
+    }
+</style>
+
+<body>
+    <div class="logo"><img class="logoimg" src="http://learning-sql.kikirara.jp/uploads/asoAppLogo.png"></div>
+    <div id="app">
+        <p class="center">新規会員登録</p><br>
+        <div class="center">
+            学籍番号 : <input type="text" id="student_id" class="radis"><br>
+
+            名前 : <input type="text" id="name" class="radis"><br>
+
+            年齢 : <input type="text" id="age" class="radis"><br>
+
+            性別：<select id="gender" class="radis">
+                <option value="" class="cen">性別を選択してください</option>
+                <option value="male" class="cen">男性</option>
+                <option value="female" class="cen">女性</option>
+            </select><br>
+            パスワード : <input type="text" id="password" class="radis"><br>
+
+            趣味 : <select id="hobby_id" class="radis">
+                <option value="" selected class="cen">趣味を選択してください</option>
+                <option value="2" class="cen">食事</option>
+                <option value="3" class="cen">カフェ</option>
+                <option value="4" class="cen">ゲーム</option>
+            </select>
+            <br>
+            <button id="submit-btn" class="btn btn--orange btn--cubic btn--shadow"
+                style="background-color: orange;">登録</button><br>
+            <!--<a href="" class="btn btn--orange btn--cubic btn--shadow" id="submit-btn">登録</a>-->
+            <a href="http://learning-sql.kikirara.jp/login.html">ログインはこちら</a>
+            <div class="tyui">
+                <div id="response"></div><br>
+            </div>
+        </div>
+    </div>
+    <div class="tyui"></div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function () {
+            const fields = ['student_id', 'name', 'age', 'gender', 'password', 'hobby_id'];
+            const formData = new FormData();
+
+            fields.forEach((field) => {
+                formData.append(field, document.getElementById(field).value);
+            });
+
+            formData.append("create", '');
+
+            axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(function (response) {
+                    console.log(response);
+                    const responseElement = document.getElementById('response');
+                    responseElement.innerHTML = ''; // clear the previous content
+
+                    // Create a new <p> element to hold the response
+                    const pElement = document.createElement('p');
+                    pElement.textContent = JSON.stringify(response.data.Message);
+
+                    // Append the new element to the response element
+                    responseElement.appendChild(pElement);
+                    if (JSON.stringify(response.data.Create) == "true") {
+                        localStorage.setItem('student_id', response.data.Data.student_id);
+                        // 
+                        const formData = new FormData();
+                        formData.append('student_id', response.data.Data.student_id);
+                        formData.append('match', '');
+
+                        axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            })
+                            .then(function (response) {
+                                console.log(response);
+                                if(JSON.stringify(response.data.Match) == "true") {
+                                    localStorage.setItem('match_id',response.data.Match_id);
+                                    location.href = 'http://learning-sql.kikirara.jp/home.html';
+                                }else {
+                                    localStorage.setItem('match_id',null);
+                                    location.href = 'http://learning-sql.kikirara.jp/home.html';
+                                }
+
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                            // 
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        });
+    </script>
+</body>
+
+</html>

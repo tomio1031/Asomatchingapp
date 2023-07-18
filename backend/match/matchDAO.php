@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+header("Access-Control-Allow-Origin: *");
 class matchDAO {
     private $pdo;
 
@@ -39,7 +39,7 @@ class matchDAO {
         if ($existingMatching) {
             return array(
                 'Match' => false,
-                'Message' => 'すでにマッチングしています。'
+                'Message' => 'Student ID ' . $student_id . ' はすでにマッチングしています。'
             );
         }
     
@@ -76,7 +76,7 @@ class matchDAO {
                     'Match' => true,
                     'Message' => 'マッチング成功',
                     'Matched Student' => $randomMatch['student_id'],
-                    'Match ID' => $matchId
+                    'Match_id' => $matchId
                 );
         
     }

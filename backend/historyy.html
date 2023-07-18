@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+</head>
+<style>
+    .button {
+        width: 90%;
+        display: flex;
+        margin: 5% auto 0 auto;
+        background-color: transparent;
+        align-items: center;
+        border-bottom: 1px solid black;
+        padding: 0 0 2% 0;
+    }
+
+    .image {
+        width: 10vh;
+    }
+
+    .name {
+        margin: 0 0 0 10%;
+        font-size: 200%;
+    }
+    .title {
+        text-align: center;
+        font-size: 150%;
+    }
+    .bottom-menu {
+    position:fixed;
+    bottom:0px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+  
+  .bottom-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    margin: 0 20px;
+}
+</style>
+
+<body>
+    <div class="title">Message</div>
+    <!-- Here we create a new div element to hold the buttons that will be generated -->
+    <div id="dynamic-buttons"></div>
+    <div class="bottom-menu">
+        <a href="http://learning-sql.kikirara.jp/home.html">
+            <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
+        </a>
+        <a href="http://learning-sql.kikirara.jp/historyy.html">
+            <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
+        </a>
+        <a href="http://learning-sql.kikirara.jp/profilee.html">
+            <img src="http://learning-sql.kikirara.jp/uploads/p.png" width="30px" height="auto">
+        </a>
+    </div>
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        var student_id = localStorage.getItem('student_id');
+        window.onload = function () {
+            const formData = new FormData();
+
+            formData.append('student_id', student_id);
+            formData.append('history', '');
+
+            axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(function (response) {
+                    console.log(response.data);
+                    const matchedStudents = response.data.Matched;
+                    matchedStudents.forEach(function (matchedStudent) {
+                        getProfile(matchedStudent.matched_id);
+                    });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        function getProfile(studentId) {
+    const formData = new FormData();
+
+    formData.append('student_id', studentId);
+    formData.append('profile', '');
+
+    axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function (response) {
+            const name = response.data.Data.name;
+            const profileImage = response.data.Data.profile_image;
+
+            let btn = document.createElement("button");
+            btn.className = "button";
+            btn.id = studentId; // Set studentId as the button's id
+
+            let img = document.createElement("img");
+            img.src = profileImage;
+            img.className = "image";
+            btn.appendChild(img);
+
+            let div = document.createElement("div");
+            div.textContent = name;
+            div.className = "name";
+            btn.appendChild(div);
+
+            btn.addEventListener("click", function() {
+    // Store the clicked button's id and name into localStorage
+    localStorage.setItem('history_match_id', this.id);
+    localStorage.setItem('history_name', name);
+});
+
+// Append the button to the "dynamic-buttons" div instead of the body
+document.getElementById('dynamic-buttons').appendChild(btn);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+
+    </script>
+</body>
+
+</html>
