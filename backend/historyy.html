@@ -39,10 +39,11 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
+        var student_id = localStorage.getItem('student_id');
         window.onload = function () {
             const formData = new FormData();
 
-            formData.append('student_id', 2);
+            formData.append('student_id', student_id);
             formData.append('history', '');
 
             axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
@@ -51,6 +52,7 @@
                     }
                 })
                 .then(function (response) {
+                    console.log(response.data);
                     const matchedStudents = response.data.Matched;
                     matchedStudents.forEach(function (matchedStudent) {
                         getProfile(matchedStudent.matched_id);
@@ -60,48 +62,49 @@
                     console.log(error);
                 });
         }
-
         function getProfile(studentId) {
-            const formData = new FormData();
+    const formData = new FormData();
 
-            formData.append('student_id', studentId);
-            formData.append('profile', '');
+    formData.append('student_id', studentId);
+    formData.append('profile', '');
 
-            axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
-                })
-                .then(function (response) {
-                    // console.log(response.data.Data.name);
-                    // console.log(response.data.Dataprofile_image);
-                    const name = response.data.Data.name;
-                    const profileImage = response.data.Data.profile_image;
+    axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function (response) {
+            const name = response.data.Data.name;
+            const profileImage = response.data.Data.profile_image;
 
-                    // ボタンを作成します。
-                    let btn = document.createElement("button");
-                    btn.className = "button"; // ボタンにクラス名を付与します。
+            let btn = document.createElement("button");
+            btn.className = "button";
+            btn.id = studentId; // Set studentId as the button's id
 
-                    // 画像を表示するimg要素を作成し、ボタンに追加します。
-                    let img = document.createElement("img");
-                    img.src = profileImage; // 画像のURLを設定します。
-                    img.className = "image"; // img要素にクラス名を付与します。
-                    btn.appendChild(img); // img要素をボタンに追加します。
+            let img = document.createElement("img");
+            img.src = profileImage;
+            img.className = "image";
+            btn.appendChild(img);
 
-                    // 名前を表示するdiv要素を作成し、ボタンに追加します。
-                    let div = document.createElement("div");
-                    div.textContent = name; // 名前を設定します。
-                    div.className = "name"; // div要素にクラス名を付与します。
-                    btn.appendChild(div); // div要素をボタンに追加します。
+            let div = document.createElement("div");
+            div.textContent = name;
+            div.className = "name";
+            btn.appendChild(div);
 
-                    // ボタンをHTMLに追加します。
-                    // ここでは、body要素の最後に追加します。
-                    document.body.appendChild(btn);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
+            btn.addEventListener("click", function() {
+                // Store the clicked button's id and name into localStorage
+                localStorage.setItem('history_match_id', this.id);
+                localStorage.setItem('history_name', name);
+            });
+
+            document.body.appendChild(btn);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+
     </script>
 </body>
 
