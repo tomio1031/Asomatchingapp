@@ -26,24 +26,26 @@
         margin: 0 0 0 10%;
         font-size: 200%;
     }
+
     .title {
         text-align: center;
         font-size: 150%;
     }
+
     .bottom-menu {
-    position:fixed;
-    bottom:0px;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-  
-  .bottom-menu a {
-    text-decoration: none;
-    color: #333;
-    padding: 10px;
-    margin: 0 20px;
-}
+        position: fixed;
+        bottom: 0px;
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .bottom-menu a {
+        text-decoration: none;
+        color: #333;
+        padding: 10px;
+        margin: 0 20px;
+    }
 </style>
 
 <body>
@@ -81,58 +83,57 @@
                     console.log(response.data);
                     const matchedStudents = response.data.Matched;
                     matchedStudents.forEach(function (matchedStudent) {
-                        getProfile(matchedStudent.matched_id);
+                        getProfile(matchedStudent.matched_id, matchedStudent.id);
                     });
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
         }
-        function getProfile(studentId) {
-    const formData = new FormData();
 
-    formData.append('student_id', studentId);
-    formData.append('profile', '');
+        function getProfile(studentId, matchId) {
+            const formData = new FormData();
 
-    axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-        .then(function (response) {
-            const name = response.data.Data.name;
-            const profileImage = response.data.Data.profile_image;
+            formData.append('student_id', studentId);
+            formData.append('profile', '');
 
-            let btn = document.createElement("button");
-            btn.className = "button";
-            btn.id = studentId; // Set studentId as the button's id
+            axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(function (response) {
+                    const name = response.data.Data.name;
+                    const profileImage = response.data.Data.profile_image;
 
-            let img = document.createElement("img");
-            img.src = profileImage;
-            img.className = "image";
-            btn.appendChild(img);
+                    let btn = document.createElement("button");
+                    btn.className = "button";
+                    btn.id = studentId; // Set studentId as the button's id
 
-            let div = document.createElement("div");
-            div.textContent = name;
-            div.className = "name";
-            btn.appendChild(div);
+                    let img = document.createElement("img");
+                    img.src = profileImage;
+                    img.className = "image";
+                    btn.appendChild(img);
 
-            btn.addEventListener("click", function() {
-    // Store the clicked button's id and name into localStorage
-    localStorage.setItem('history_match_id', this.id);
-    localStorage.setItem('history_name', name);
-    location.href = 'http://learning-sql.kikirara.jp/chat_history.html';
-});
+                    let div = document.createElement("div");
+                    div.textContent = name;
+                    div.className = "name";
+                    btn.appendChild(div);
 
-// Append the button to the "dynamic-buttons" div instead of the body
-document.getElementById('dynamic-buttons').appendChild(btn);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
+                    btn.addEventListener("click", function () {
+                        // Store the matchId and name into localStorage
+                        localStorage.setItem('history_match_id', matchId);
+                        localStorage.setItem('history_name', name);
+                        location.href = 'http://learning-sql.kikirara.jp/chat_history.html';
+                    });
 
-
+                    // Append the button to the "dynamic-buttons" div instead of the body
+                    document.getElementById('dynamic-buttons').appendChild(btn);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
     </script>
 </body>
 
