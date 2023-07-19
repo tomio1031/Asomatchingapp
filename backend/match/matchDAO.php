@@ -45,8 +45,8 @@ class matchDAO {
             );
         }
     
-        // If there's no existing 'matching' status, find students with the same hobby who are not currently 'matching'
-        $sql = "SELECT student_id FROM Users WHERE hobby_id = :hobby_id AND student_id != :student_id AND student_id NOT IN (SELECT user_id FROM Matches WHERE status IN ('matching', 'matched')) AND student_id NOT IN (SELECT matched_id FROM Matches WHERE status IN ('matching', 'matched'))";
+        // If there's no existing 'matching' status, find students with the same hobby who have never matched with the student
+        $sql = "SELECT student_id FROM Users WHERE hobby_id = :hobby_id AND student_id != :student_id AND student_id NOT IN (SELECT user_id FROM Matches WHERE matched_id = :student_id) AND student_id NOT IN (SELECT matched_id FROM Matches WHERE user_id = :student_id)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':hobby_id', $hobby_id, PDO::PARAM_INT);
         $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
