@@ -8,6 +8,14 @@
     <title>Profile Page</title>
 </head>
 <style>
+    
+    @media screen and (min-width: 300px){
+        body{
+          background-image: url('http://learning-sql.kikirara.jp/uploads/h4.jpg');
+            /*height: 800px;*/
+            /*position:relative;*/
+            height: auto;
+        }
     .button {
         width: 90%;
         display: flex;
@@ -17,52 +25,72 @@
         border-bottom: 1px solid black;
         padding: 0 0 2% 0;
     }
-
+    
     .image {
         width: 10vh;
     }
-
+    
     .name {
         margin: 0 0 0 10%;
         font-size: 200%;
     }
-
     .title {
         text-align: center;
         font-size: 150%;
     }
-
-    .bottom-menu {
-        position: fixed;
-        bottom: 0px;
+    .flex{
         display: flex;
-        justify-content: center;
-        padding: 10px;
+        
+    
+        margin-left:10px;
+        width: 100%;
+        margin-top:5%;
+        align-items: center;
+        
     }
-
-    .bottom-menu a {
-        text-decoration: none;
-        color: #333;
-        padding: 10px;
-        margin: 0 20px;
+    .footer{
+        width:100%;
+        position:absolute;
+        bottom: 0;
+      }
+      
+      .bottom-menu {
+          display: block;
+          position:relative;
+          margin-top:auto;
+          justify-content: center;
+          text-align: center;
+          background-position: bottom;
+      }
+        
+        .bottom-menu a {
+          text-decoration: none;
+          color: #333;
+          padding: 20px;
+          margin:  20px;
+          bottom:0;
+      }
     }
-</style>
+    </style>
 
 <body>
     <div class="title">Message</div>
-    <!-- Here we create a new div element to hold the buttons that will be generated -->
     <div id="dynamic-buttons"></div>
-    <div class="bottom-menu">
-        <a href="http://learning-sql.kikirara.jp/home.html">
-            <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
-        </a>
-        <a href="http://learning-sql.kikirara.jp/historyy.html">
-            <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
-        </a>
-        <a href="http://learning-sql.kikirara.jp/profilee.html">
-            <img src="http://learning-sql.kikirara.jp/uploads/p.png" width="30px" height="auto">
-        </a>
-    </div>
+    <footer class="footer">
+        <div class="bottom-menu">
+            <a href="http://learning-sql.kikirara.jp/home.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
+            </a>
+
+            <a href="http://learning-sql.kikirara.jp/historyy.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
+            </a>
+            
+            <a href="http://learning-sql.kikirara.jp/profilee.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/user-regular.svg" width="30px" height="auto">
+            </a>
+          </div> 
+          </footer>  
     <!-- JSONを扱うためのCDN -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
