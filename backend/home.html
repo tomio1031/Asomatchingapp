@@ -111,7 +111,6 @@
 
 <body>
         <p id="name" class="topName"></p>
-    
     <img id="profile_image" src="" class="image">
     <div class="white">
         <div class="flex">
@@ -145,8 +144,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
-        window.onload = function () {
-            const userData = {
+           const userData = {
                 matched_student_id: '',
                 matched_id: '',
                 name: '',
@@ -155,6 +153,8 @@
                 introduction: '',
                 profile_image: '',
             };
+        window.onload = function () {
+         
             const formData = new FormData();
 var student_id = localStorage.getItem('student_id');
             // formData.append('student_id', student_id);
@@ -213,7 +213,7 @@ var student_id = localStorage.getItem('student_id');
         }
         function locationChat() {
             localStorage.setItem('history_name', userData.name);
-            location.href = 'http://learning-sql.kikirara.jp/chat.html'
+            location.href = 'http://learning-sql.kikirara.jp/chat.html';
             
         }
     </script>

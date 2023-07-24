@@ -7,78 +7,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asotalk</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <style>
-        .field {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 5% 0 0 0;
-        }
-
-        .name {
-            margin: 0 10% 0 0;
-        }
-
-        .name_field {
-            height: 100%;
-            width: 20vh;
-        }
-
-        .top {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin: 5% 0 0 0;
-            align-items: center;
-        }
-
-        .back {
-            font-size: 200%;
-            padding: 0 0 0 5%;
-        }
-
-        .pagename {
-            font-size: 120%;
-        }
-
-        .done {
-            padding: 0 5% 0 0;
-            font-size: 110%;
-        }
-
-        .intrText {
-            margin: 5% 0 0 5%;
-        }
-
-        .area {
-            margin: 5% auto 0 auto;
-            display: flex;
-            width: 80%;
-            height: 20vh;
-        }
-
-        .bottom-menu {
-            position: fixed;
-            bottom: 0px;
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-        }
-
-        .bottom-menu a {
-            text-decoration: none;
-            color: #333;
-            padding: 10px;
-            margin: 0 20px;
-        }
-    </style>
 </head>
+<style>
+    @media screen and (min-width: 300px){
+    body{
+      background-image: url('http://learning-sql.kikirara.jp/uploads/h4.jpg');
+        /*height: 800px;*/
+        /*position:relative;*/
+        height: auto;
+    }
+.field {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5% 0 0 0;
+}
 
+.name {
+    margin: 0 10% 0 0;
+}
+
+.name_field {
+    
+    width: 20vh;
+    border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      line-height: 25px;
+    margin-top:30px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5% 0 0 0;
+    align-items: center;
+}
+
+
+
+.pagename {
+    font-size: 120%;
+}
+
+.done {
+ 
+    font-size: 110%;
+    display: flex;
+      
+        font-weight: 400;
+        line-height: 1.5;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        text-align: center;
+        vertical-align: middle;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        color: #212529;
+        border-radius: 0.5rem;
+}
+
+.intrText {
+    margin-top: 30px;
+    margin-left:35px;
+    
+}
+
+.area {
+    margin: 30px auto 0 auto;
+    display: flex;
+    width: 80%;
+    height: 20vh;
+    border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+}
+
+.footer{
+    width:100%;
+    position:absolute;
+    bottom: 0;
+  }
+  
+  .bottom-menu {
+      display: block;
+      position:relative;
+      margin-top:auto;
+      justify-content: center;
+      text-align: center;
+      background-position: bottom;
+  }
+    
+    .bottom-menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 20px;
+      margin:  20px;
+      bottom:0;
+  }
+}
+</style>
 <body>
     <div class="top">
-        <div class="back" onclick="locationp()">←</div>
-        <div class="pagename">設定</div>
-        <button id="submit-btn" class="done">編集</button>
+        <div class="back">
+            <img src="http://learning-sql.kikirara.jp/uploads/yazirusi.png" onclick="locationp()" style="height:50px;margin-left:10px;"></div>
+            <div class="pagename" style="text-align: center;">設定</div>
+            <button id="submit-btn" class="done" onclick="seni()" style="background-color: orange;">完了</button>
     </div>
     <div class="field">
         <div class="name">名前</div>
@@ -100,25 +143,21 @@
     <div class="intrText">自己紹介</div>
 
     <textarea id="introduction" name="introduction" class="area"></textarea>
-    <div class="bottom-menu">
-        <a href="http://learning-sql.kikirara.jp/home.html">
-            <!-- <div class="Your"> -->
-            <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
-            <!-- </div> -->
-        </a>
+    <footer class="footer">
+        <div class="bottom-menu">
+            <a href="http://learning-sql.kikirara.jp/home.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
+            </a>
 
-        <a href="http://learning-sql.kikirara.jp/historyy.html">
-            <!-- <button class="List"> -->
-            <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
-            <!-- </button> -->
-        </a>
-
-        <a href="http://learning-sql.kikirara.jp/profilee.html">
-            <!-- <button class="My"> -->
-            <img src="http://learning-sql.kikirara.jp/uploads/p.png" width="30px" height="auto">
-            <!-- </button> -->
-        </a>
-    </div>
+            <a href="http://learning-sql.kikirara.jp/historyy.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
+            </a>
+            
+            <a href="http://learning-sql.kikirara.jp/profilee.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/user-regular.svg" width="30px" height="auto">
+            </a>
+          </div> 
+          </footer>  
     <script>
         function locationp() {
             location.href = 'http://learning-sql.kikirara.jp/profilee.html'
