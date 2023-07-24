@@ -255,18 +255,20 @@ function BlockFunction() {
                                 }
                             })
                             .then(function (response) {
+                              
                                 console.log(response);
                             })
                             .catch(function (error) {
                                 console.log(error);
                             });
-                            location.href = 'http://learning-sql.kikirara.jp/home.html';
+                          
         })
         .catch(function(error) {
             console.log(error);
         });
     // ここにブロックに関連するコードを書く
     alert("マッチングが解除されました");
+    location.href = 'http://learning-sql.kikirara.jp/home.html';
 }
 document.getElementById("friend").addEventListener("click", function() {
     const confirmAction = confirm("注意: 友達申請を行います。OKを押すと進行します。");
@@ -320,7 +322,6 @@ function FrinedFunction() {
                             .catch(function (error) {
                                 console.log(error);
                             });
-                            location.href = 'http://learning-sql.kikirara.jp/home.html';
         })
         .catch(function(error) {
             console.log(error);
