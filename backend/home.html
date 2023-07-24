@@ -5,85 +5,112 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page</title>
+    <title>ホーム画面</title>
 </head>
 <style>
-    body {
-        background-color: #cee9fb;
-        padding: 0%;
-        margin: 0%;
+    @media screen and (min-width: 300px){
+    body{
+      background-image: url('http://learning-sql.kikirara.jp/uploads/h4.jpg');
+        /*height: 800px;*/
+        /*position:relative;*/
+        height: auto;
     }
+/*body {
+    background-color: #cee9fb;
+    padding: 0%;
+    margin: 0%;
+}*/
 
-    .topName {
-        text-align: center;
-        font-size: 120%;
-    }
-
-    .image {
-        margin: 5% auto;
-        display: flex;
-        width: 90%;
-    }
-
-    .white {
-        width: 100%;
-        height: 30vh;
-        border-radius: 50px 50px 0 0;
-        background-color: aqua;
-        position: relative;
-    }
-
-    .name {
-        font-size: 120%;
-        margin: 5% 5% 0 0;
-    }
-
-    .flex {
-        display: flex;
-        align-items: center;
-        margin: 0 auto;
-        justify-content: center;
-    }
-    .age {
-        font-size: 120%;
-        margin: 5% 5% 0 0;
-    }
-    .gender {
-        font-size: 120%;
-        margin: 5% 5% 0 0;
-    }
-    .introduction {
-        margin: 5% auto;
-        display: flex;
-        width: 80%;
-        height: 50%;
-        background-color: transparent;
-        border-color: transparent;
-        font-size: 120%;
-    }
-    .message {
-        position: absolute;
-        right: 10%;
-        top: -25%;
-    }
-    .bottom-menu {
-    position:fixed;
-    bottom:0px;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+.topName {
+    text-align: center;
+    font-size: 120%;
 }
+.logoimg{
+    width:120px;
+    height:60px;
+}
+
+.image {
+    /*margin: 5% auto;
+    margin-top:5%;
+    margin-left:5%;
+    margin-right:5%;
+    display: flex;
+    width: 90%;*/
+    width: 100%;
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    display: flex;
+}
+
+.white {
+    width: 100%;
+    height: 30vh;
+    border-radius: 50px 50px 50px 50px;
+    background-color: aqua;
+    position: relative;
+}
+
+.name {
+    font-size: 120%;
+    margin: 5% 5% 0 0;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+}
+.age {
+    font-size: 120%;
+    margin: 5% 5% 0 0;
+}
+.gender {
+    font-size: 120%;
+    margin: 5% 5% 0 0;
+}
+.introduction {
+    margin: 5% auto;
+    display: flex;
+    width: 80%;
+    height: 50%;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 120%;
+}
+.message {
+    position: absolute;
+    right: 10%;
+    top: -25%;
+}
+.footer{
+    width:100%;
+    position:absolute;
+    bottom: 0;
+  }
   
-  .bottom-menu a {
-    text-decoration: none;
-    color: #333;
-    padding: 10px;
-    margin: 0 20px;
+  .bottom-menu {
+      display: block;
+      position:relative;
+      margin-top:auto;
+      justify-content: center;
+      text-align: center;
+      background-position: bottom;
+  }
+    
+    .bottom-menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 20px;
+      margin:  20px;
+      bottom:0;
+  }
 }
 </style>
 
 <body>
-    <p id="name" class="topName"></p>
+        <p id="name" class="topName"></p>
     <img id="profile_image" src="" class="image">
     <div class="white">
         <div class="flex">
@@ -94,25 +121,21 @@
         </div>
         <textarea id="introduction" class="introduction"></textarea>
     </div>
-    <div class="bottom-menu">
-        <a href="http://learning-sql.kikirara.jp/home.html">
-            <!-- <div class="Your"> -->
-                <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
-            <!-- </div> -->
-        </a>
+    <footer class="footer">
+        <div class="bottom-menu">
+            <a href="http://learning-sql.kikirara.jp/home.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
+            </a>
 
-        <a href="http://learning-sql.kikirara.jp/historyy.html">
-            <!-- <button class="List"> -->
-                <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
-            <!-- </button> -->
-        </a>
-        
-        <a href="http://learning-sql.kikirara.jp/profilee.html">
-            <!-- <button class="My"> -->
-                <img src="http://learning-sql.kikirara.jp/uploads/p.png" width="30px" height="auto">
-            <!-- </button> -->
-        </a>
-      </div>  
+            <a href="http://learning-sql.kikirara.jp/historyy.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
+            </a>
+            
+            <a href="http://learning-sql.kikirara.jp/profilee.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/user-regular.svg" width="30px" height="auto">
+            </a>
+          </div> 
+          </footer>  
 
 
 
@@ -121,8 +144,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
-        window.onload = function () {
-            const userData = {
+           const userData = {
+                matched_student_id: '',
                 matched_id: '',
                 name: '',
                 gender: '',
@@ -130,10 +153,11 @@
                 introduction: '',
                 profile_image: '',
             };
+        window.onload = function () {         
             const formData = new FormData();
-// var student_id = localStorage.getItem('student_id');
+var student_id = localStorage.getItem('student_id');
             // formData.append('student_id', student_id);
-            formData.append('student_id', 2);
+            formData.append('student_id', student_id);
             formData.append('check', '');
 
             axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
@@ -146,10 +170,13 @@
                         document.getElementById('profile_image').src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzHPvMlWAEj5EW1mmSjU_II1orfisTnkr6hg&usqp=CAU';
                     }else {
                         console.log(response);
-                    userData.matched_id = response.data[0].other_student_id;
-                    // localStorage.setItem('matched_id', userData.matched_id);   need?
+                    userData.matched_student_id = response.data[0].other_student_id;
+                  
+                    userData.matched_id = response.data[0].id;
+                    localStorage.setItem('match_id', userData.matched_id);
+                    // localStorage.setItem('matched_id', userData.matched_student_id);
                     const formData2 = new FormData();
-                    formData2.append('student_id', userData.matched_id);
+                    formData2.append('student_id', userData.matched_student_id);
                     formData2.append('profile', '');
 
                     axios.post('http://learning-sql.kikirara.jp/main.php', formData2, {
@@ -184,7 +211,9 @@
                 });
         }
         function locationChat() {
-            location.href = 'http://learning-sql.kikirara.jp/chat.html'
+            localStorage.setItem('history_name', userData.name);
+            location.href = 'http://learning-sql.kikirara.jp/chat.html';
+            
         }
     </script>
 </body>

@@ -12,7 +12,7 @@ class checkDAO {
 
     public function check($student_id) {
         $stmt = $this->pdo->prepare(
-            "SELECT IF(user_id = :student_id, matched_id, user_id) AS other_student_id
+            "SELECT id, IF(user_id = :student_id, matched_id, user_id) AS other_student_id
             FROM Matches
             WHERE (user_id = :student_id OR matched_id = :student_id) 
             AND status = 'matching'"
@@ -29,6 +29,7 @@ class checkDAO {
         
         return $result;
     }
+    
     
 }
 ?>

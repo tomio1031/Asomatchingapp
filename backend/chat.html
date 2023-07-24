@@ -5,77 +5,131 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Page</title>
-    <style>
-        .message {
-            border: 1px solid black;
-            margin: 10px;
-            padding: 10px;
-        }
-
-        .message.mine {
-            margin-left: auto;
-            background-color: #caf0f8;
-        }
-
-        .message.theirs {
-            margin-right: auto;
-            background-color: #f0f8ca;
-        }
-
-        #message-container {
-            margin: 5% 0 auto 0 ;
-            height: 70vh;
-            overflow-y: scroll;
-            display: flex;
-            flex-direction: column-reverse;
-        }
-        .flex {
-            display: flex;
-            justify-content: space-around;
-        }
-        .back {
-            font-size: 150%;
-            align-items: center;
-        }
-        .under {
-            margin: auto 0 0 0;
-            display: flex;
-            width: 100%;
-            justify-content: space-around;
-        }
-        .input {
-            width: 40vw;
-        }
-        .me {
-            font-size: 120%;
-        }
-        .send {
-            font-size: 110%;
-        }
-        .bottom-menu {
-    position:fixed;
-    bottom:0px;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-  
-  .bottom-menu a {
-    text-decoration: none;
-    color: #333;
-    padding: 10px;
-    margin: 0 20px;
-}
-    </style>
+    <title>メッセージ</title>
 </head>
+<style>
+    @media screen and (min-width: 270px){
+body{
+        background-image: url('http://learning-sql.kikirara.jp/uploads/h4.jpg');
+          /*height: 800px;*/
+          /*position:relative;*/
+          height: auto;
+  }
+.message {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.message.mine {
+    margin-left: auto;
+    background-color: #caf0f8;
+}
+
+.message.theirs {
+    margin-right: auto;
+    background-color: #f0f8ca;
+}
+
+.done {
+ 
+    font-size: 110%;
+    display: flex;
+      
+        font-weight: 400;
+        line-height: 2.0;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        text-align: center;
+        vertical-align: middle;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        color: #212529;
+        border-radius: 0.5rem;
+}
+
+#message-container {
+    margin: 5% 0 auto 0 ;
+    height: 70vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.flex {
+    display: flex;
+    justify-content: space-around;
+
+    
+    width: 100%;
+    margin: 5% 0 0 0;
+    align-items: center;
+}
+.back {
+    font-size: 150%;
+    align-items: center;
+}
+.under {
+    margin: auto 0 0 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.input {
+    width: 40vw;
+    border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        line-height: 25px;
+}
+.me {
+    font-size: 120%;
+}
+.send {
+    font-size: 110%;
+    background-color: orange;
+    border-radius: 0.5rem;
+}
+.footer{
+    width:100%;
+    position:sticky;
+    bottom: 0;
+  }
+  
+  .bottom-menu {
+      display: block;
+      position:relative;
+      margin-top:auto;
+      justify-content: center;
+      text-align: center;
+      background-position: bottom;
+  }
+    
+    .bottom-menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 20px;
+      margin:  20px;
+      bottom:0;
+  }
+}
+</style>
+
 
 <body>
     <div class="flex">
-    <div class="back" onclick="seni()">←</div>
+    <div class="back">
+        <img src="http://learning-sql.kikirara.jp/uploads/yazirusi.png" onclick="seni()" style="height:50px;margin-top:10px">
+    </div>
     <div class="name"></div>
-<button id="block">ブロック</button>
-<button id="friend">友達申請</button>
+    <button id="block" class="done" style="background-color: red;">ブロック</button>
+    <button id="friend" class="done" style="background-color: greenyellow;">友達申請</button>
 </div>
     <div id="message-container"></div>
     <div class="under">
@@ -84,25 +138,21 @@
 
         <button id="submit-btn" class="send">送信</button>
     </div>
-    <div class="bottom-menu">
-        <a href="http://learning-sql.kikirara.jp/home.html">
-            <!-- <div class="Your"> -->
-                <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
-            <!-- </div> -->
-        </a>
+    <footer class="footer">
+        <div class="bottom-menu">
+            <a href="http://learning-sql.kikirara.jp/home.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
+            </a>
 
-        <a href="http://learning-sql.kikirara.jp/historyy.html">
-            <!-- <button class="List"> -->
-                <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
-            <!-- </button> -->
-        </a>
-        
-        <a href="http://learning-sql.kikirara.jp/profilee.html">
-            <!-- <button class="My"> -->
-                <img src="http://learning-sql.kikirara.jp/uploads/p.png" width="30px" height="auto">
-            <!-- </button> -->
-        </a>
-      </div>  
+            <a href="http://learning-sql.kikirara.jp/historyy.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
+            </a>
+            
+            <a href="http://learning-sql.kikirara.jp/profilee.html">
+                    <img src="http://learning-sql.kikirara.jp/uploads/user-regular.svg" width="30px" height="auto">
+            </a>
+          </div> 
+          </footer>  
 
     <!-- JSONを扱うためのCDN -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -205,17 +255,20 @@ function BlockFunction() {
                                 }
                             })
                             .then(function (response) {
+                              
                                 console.log(response);
                             })
                             .catch(function (error) {
                                 console.log(error);
                             });
+                          
         })
         .catch(function(error) {
             console.log(error);
         });
     // ここにブロックに関連するコードを書く
     alert("マッチングが解除されました");
+    location.href = 'http://learning-sql.kikirara.jp/home.html';
 }
 document.getElementById("friend").addEventListener("click", function() {
     const confirmAction = confirm("注意: 友達申請を行います。OKを押すと進行します。");
@@ -244,7 +297,7 @@ function FrinedFunction() {
         formData.append('sender_id', student_id);
         formData.append('match_id', matched_id);
         formData.append('send', '');
-        formData.append('message', '学籍番号'+student_id);
+        formData.append('message', '友達申請の依頼が届きました。'+student_id);
 
         axios.post('http://learning-sql.kikirara.jp/main.php', formData, {
             headers: {

@@ -28,10 +28,11 @@ class createDAO {
 
         // Check if student_id already exists
         $sql = "SELECT * FROM Users WHERE student_id = :student_id";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
-        $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $this->pdo->prepare($sql);
+    // BINDING STUDENT ID AS STRING HERE
+    $stmt->bindValue(':student_id', $student_id, PDO::PARAM_STR);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
         // If the student_id already exists, return an error message
         if ($user) {
             return array(
@@ -77,7 +78,8 @@ class createDAO {
         // If all checks pass, insert new user profile
         $sql = "INSERT INTO Users (student_id, name, age, gender, password, hobby_id) VALUES (:student_id, :name, :age, :gender, :password, :hobby_id)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':student_id', $student_id, PDO::PARAM_INT);
+        // BINDING STUDENT ID AS STRING HERE
+        $stmt->bindValue(':student_id', $student_id, PDO::PARAM_STR);
         $stmt->bindValue(':name', $name);
         $stmt->bindValue(':age', $age, PDO::PARAM_INT);
         $stmt->bindValue(':gender', $gender);
