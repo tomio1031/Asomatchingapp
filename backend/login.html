@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link rel="manifest" href="http://learning-sql.kikirara.jp/uploads/manifest.json">
+
     <title>ログイン画面</title>
 </head>
 <style>
@@ -247,24 +249,20 @@
 
     <!-- JSONを扱うためのCDN -->
     <div class="tyui">
-        <footer class="footer">
-            <div class="bottom-menu">
-                <a href="http://learning-sql.kikirara.jp/home.html">
-                        <img src="http://learning-sql.kikirara.jp/uploads/ab.png" width="30px" height="auto">
-                </a>
-    
-                <a href="http://learning-sql.kikirara.jp/historyy.html">
-                        <img src="http://learning-sql.kikirara.jp/uploads/ls2.png" width="30px" height="auto">
-                </a>
-                
-                <a href="http://learning-sql.kikirara.jp/profilee.html">
-                        <img src="http://learning-sql.kikirara.jp/uploads/user-regular.svg" width="30px" height="auto">
-                </a>
-              </div> 
-              </footer> 
+   
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
+                window.onload = function () {
+            if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('http://learning-sql.kikirara.jp/uploads/service-worker.js').then(reg => {
+    console.log('サービスワーカーを登録しました', reg);
+  }).catch(err => {
+    console.log('登録失敗', err);
+  });
+}
+
+        }
     document.getElementById('submit-btn').addEventListener('click', function() {
         const fields = ['student_id', 'password'];
         const formData = new FormData();
