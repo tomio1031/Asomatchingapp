@@ -1,0 +1,58 @@
+{
+  "format_version": 1,
+  "header": {
+    "description": "麻生マッチングアプリ",
+    "name": "Learning SQL",
+    "uuid": "00f139e0-1460-11ee-e75d-75b456267c57",
+    "version": [0, 0, 1],
+    "icons": {
+      "512x512": "http://learning-sql.kikirara.jp/uploads/icon.png"
+    }
+  },
+  "modules": [
+    {
+      "description": "トーク履歴",
+      "type": "resources",
+      "uuid": "00f139e0-1460-11ee-a004-55f1543efc54",
+      "version": [0, 0, 1]
+    },
+    {
+      "description": "メッセージ",
+      "type": "resources",
+      "uuid": "00f139e0-1460-11ee-a005-55f1543efc54",
+      "version": [0, 0, 1]
+    },
+    {
+      "description": "マッチ履歴",
+      "type": "resources",
+      "uuid": "00f139e0-1460-11ee-a006-55f1543efc54",
+      "version": [0, 0, 1]
+    },
+    {
+      "description": "ホーム画面",
+      "type": "resources",
+      "uuid": "00f139e0-1460-11ee-a007-55f1543efc54",
+      "version": [0, 0, 1]
+    },
+    {
+      "description": "ログイン画面",
+      "type": "resources",
+      "uuid": "00f139e0-1460-11ee-a008-55f1543efc54",
+      "version": [0, 0, 1]
+    },
+    {
+      "description": "プロフィール編集",
+      "type": "resources",
+      "uuid": "00f139e0-1460-11ee-a009-55f1543efc54",
+      "version": [0, 0, 1]
+    },
+    {
+      "description": "まいプロフィール",
+      "type": "resources",
+      "uuid": "00f139e0-1460-11ee-a010-55f1543efc54",
+      "version": [0, 0, 1]
+    }
+  ],
+  "start_url": "http://learning-sql.kikirara.jp/login.html",
+  "display": "standalone"
+}
