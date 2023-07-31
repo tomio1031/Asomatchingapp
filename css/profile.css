@@ -1,0 +1,153 @@
+
+@media screen and (min-width: 300px){
+    body{
+      background-image: url('../image/haikei4.jpg');
+        /*height: 800px;*/
+        /*position:relative;*/
+        height: auto;
+    }
+    .top {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 30%;
+    }
+
+    .gyar {
+        width: 15%;
+    }
+
+    .image {
+        width: 30%;
+        margin: 10% auto 5% auto;
+        display: flex;
+    }
+    
+    .maru{       /* ※縦横を同値に */
+            height: 30%;       /* ※縦横を同値に */
+            border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+            background-position: center center;  /* 横長画像の左上を基準に表示 */
+            display: inline-block;
+            width: 30%;
+            margin: 10% auto 5% auto;
+            display: flex;          /* 複数の画像を横に並べたい場合 */
+    }
+    
+    
+    
+    
+   
+    .center {
+        display: flex;
+        text-align: center;
+        margin: 0 auto;
+        justify-content: center;
+        font-size: 150%;
+    }
+
+    .hobby {
+        text-align: center;
+        font-size: 120%;
+    }
+
+    .introduction {
+        text-align: center;
+        padding: 10px;
+        margin: 5% 0 0 5%;
+        font-size: 100%;
+    }
+
+    .hobby_text {
+        margin: 5% 0 0 5%;
+        font-size: 120%;
+    }
+
+    .introduction_text {
+        margin: 5% 0 0 5%;
+        font-size: 110%;
+    }
+
+    .image_text {
+        margin: 10% 0 0 5%;
+        font-size: 120%;
+    }
+
+    .file {
+        margin-top:0px;
+        padding-top:0px;
+        padding-left: 10px;
+    }
+
+    .image_box {
+        display: flex;
+        align-items: center;
+
+    }
+    .button {
+        display: flex;
+        margin: 5% 10% 0 auto;
+        font-size: 1.0rem;
+        font-weight: 500;
+        line-height: 1.5;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        text-align: center;
+        vertical-align: middle;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        color: #212529;
+        border-radius: 0.5rem;
+
+    }
+    .line {
+        margin-top: 5%;
+        width: 100vw;
+        height: 5px;
+        background-color: #6fc2fc;
+    }
+    .min{
+        margin: 10% 0 0 5%;
+        font-size: 120%;    
+        align-items: center;
+        gap: 10px;
+        }
+    .min2{
+        margin: 0 0 0 5%;
+        font-size: 120%;                
+        align-items: center;
+        gap: 10px;
+        line-height: 70px;
+         }
+         
+    
+.footer{
+    width:100%;
+    position:sticky;
+    bottom: 0;
+  }
+  
+  .bottom-menu {
+      display: block;
+      position:relative;
+      margin-top:auto;
+      justify-content: center;
+      text-align: center;
+      background-position: bottom;
+  }
+    
+    .bottom-menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 20px;
+      margin:  20px;
+      bottom:0;
+  }
+}

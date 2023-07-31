@@ -1,0 +1,192 @@
+
+@media screen and (min-width: 300px){
+  body{
+    background-image: url('../image/haikei4.jpg');
+      /*height: 800px;*/
+      /*position:relative;*/
+      height: auto;
+  }
+  
+  .logoimg{
+      width:120px;
+      height:60px;
+  }
+  
+  .Your{
+      border: 3px solid #eaf2fc;
+      border-radius: 100px;
+      /* padding: 25px; */
+      box-sizing: border-box;
+      background: #eaf2fc;
+      color: #80A8ff;
+    
+      text-align: left;
+      margin: 10px 0;
+    transition:0.5s;
+  }
+  .cen{
+      text-align:center;
+  
+  }
+  
+  .login{
+    color: white;
+  }
+  .radis{
+      
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      line-height: 25px;
+     
+  }
+  
+  select{
+      
+      width:120px;
+      height:30px;
+  }
+  .center{
+      text-align:center;
+      font-size:30px;
+      line-height: 2.0;
+    font-weight:bold;
+    color: #80A8ff;
+    text-shadow: 0.02em 0.02em 0.02em rgba(0,0,0,1);
+  
+     }
+  .Your:hover {
+    color: #eaf2fc;
+    background: #80A8ff;
+  }
+  
+  .List{
+      border: 3px solid #80A8ff;
+      border-radius: 100px;
+      padding: 25px;
+      box-sizing: border-box;
+      background: #eaf2fc;
+      color: #80A8ff;
+      text-decoration: none;
+      text-align: center;
+      margin: 10px 0;
+    transition:0.5s;
+  }
+  
+  .List:hover{
+      color: #eaf2fc;
+    background: #80A8ff;
+  }
+  
+  .My{
+      border: 3px solid #80A8ff;
+      border-radius: 100px;
+      padding: 25px;
+      box-sizing: border-box;
+      background: #eaf2fc;
+      color: #80A8ff;
+      text-decoration: none;
+      text-align: right;
+      margin: 10px 0;
+    transition:0.5s;
+  }
+  /*パスワードの目表示*/
+  
+ 
+ 
+  .My:hover{
+      color: #eaf2fc;
+    background: #80A8ff;
+  }
+  .top{
+    margin-top:20px;
+  }
+  .footer{
+    width:100%;
+    position:sticky;
+    position: a;
+    bottom: 0;
+  }
+  
+  .tyui{
+      color:red;
+  }
+  .bottom-menu {
+      display: block;
+      position:relative;
+      margin-top:auto;
+      justify-content: center;
+      text-align: center;
+      background-position: bottom;
+  }
+    
+    .bottom-menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 20px;
+      margin:  20px;
+      bottom:0;
+  }
+  .me{
+  margin-left: 10px;
+  }
+
+  /*新規*/
+  a.btn--orange {
+      color: #fff;
+      background-color: #eb6100;
+      border-bottom: 5px solid #b84c00;
+      margin-top: 30px;
+    }
+    a.btn--orange:hover {
+      
+      color: #fff;
+      background: #f56500;
+      border-bottom: 2px solid #b84c00;
+    }
+    a.btn--shadow {
+      -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+      box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    }
+  
+    /*まずはお決まりのボックスサイズ算出をborer-boxに */
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  
+  html {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      font-size: 62.5%;/*rem算出をしやすくするために*/
+    }
+  
+  .btn,
+  a.btn,
+  button.btn {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+  }
+}
+
+/*pc画面のcss*/

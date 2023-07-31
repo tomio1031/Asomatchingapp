@@ -1,0 +1,153 @@
+@media screen and (max-width: 999px){
+    body{
+      background-image: url('../image/haikei4.jpg');
+        /*height: 800px;*/
+        /*position:relative;*/
+        height: auto;
+    }
+.field {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5% 0 0 0;
+}
+
+.name {
+    margin: 0 10% 0 0;
+}
+
+.name_field {
+    
+    width: 20vh;
+    border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      line-height: 25px;
+    margin-top:30px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5% 0 0 0;
+    align-items: center;
+}
+
+
+
+.pagename {
+    font-size: 120%;
+}
+
+.done {
+ 
+    font-size: 110%;
+    display: flex;
+      
+        font-weight: 400;
+        line-height: 1.5;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        text-align: center;
+        vertical-align: middle;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        color: #212529;
+        border-radius: 0.5rem;
+}
+
+.intrText {
+    margin-top: 30px;
+    margin-left:35px;
+    
+}
+
+.area {
+    margin: 30px auto 0 auto;
+    display: flex;
+    width: 80%;
+    height: 20vh;
+    border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+}
+
+.footer{
+    width:100%;
+    position:absolute;
+    bottom: 0;
+  }
+  
+  .bottom-menu {
+      display: block;
+      position:relative;
+      margin-top:auto;
+      justify-content: center;
+      text-align: center;
+      background-position: bottom;
+  }
+    
+    .bottom-menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 20px;
+      margin:  20px;
+      bottom:0;
+  }
+  .pc{
+    display: none;
+  }
+}
+@media screen and (min-width: 1000px){
+    .pc{
+      height: 150px;
+      text-align: center;
+      font-size: 50px;
+      margin-top: 250px;
+    }
+    .logo{
+      display: none;
+    }
+    .center{
+      display: none;
+    }
+    .radis{
+      display: none;
+    }
+    .tyui{
+      display: none;
+    }
+    .bottom-menu{
+      display: none;
+    }
+    .pass{
+      display:none;
+    }
+    .back{
+        display:none;
+    }
+    .field{
+        display: none;
+    }
+    .pagename{
+        display: none;
+    }
+    .done{
+        display: none;
+    }
+    .intrText{
+        display: none;
+    }
+    .area{
+        display: none;
+    }
+  }

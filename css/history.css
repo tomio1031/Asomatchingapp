@@ -1,0 +1,64 @@
+
+@media screen and (min-width: 300px){
+    body{
+      background-image: url('../image/haikei4.jpg');
+        /*height: 800px;*/
+        /*position:relative;*/
+        height: auto;
+    }
+.button {
+    width: 90%;
+    display: flex;
+    margin: 5% auto 0 auto;
+    background-color: transparent;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 0 0 2% 0;
+}
+
+.image {
+    width: 10vh;
+}
+
+.name {
+    margin: 0 0 0 10%;
+    font-size: 200%;
+}
+.me {
+    text-align: center;
+    font-size: 150%;
+    padding-bottom: 50%;
+}
+.flex{
+    display: flex;
+    
+
+    margin-left:10px;
+    width: 100%;
+    margin-top:5%;
+    align-items: center;
+    
+}
+.footer{
+    width:100%;
+    position:absolute;
+    bottom: 0;
+  }
+  
+  .bottom-menu {
+      display: block;
+      position:relative;
+      margin-top:auto;
+      justify-content: center;
+      text-align: center;
+      background-position: bottom;
+  }
+    
+    .bottom-menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 20px;
+      margin:  20px;
+      bottom:0;
+  }
+}

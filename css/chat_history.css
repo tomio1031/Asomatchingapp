@@ -1,0 +1,151 @@
+@media screen and (max-width: 999px){
+    @media screen and (min-width: 341px){
+    body{
+      background-image: url('../image/haikei4.jpg');
+        /*height: 800px;*/
+        /*position:relative;*/
+        height: auto;
+    }
+.message {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.message.mine {
+    margin-left: auto;
+    background-color: #caf0f8;
+}
+
+.message.theirs {
+    margin-right: auto;
+    background-color: #f0f8ca;
+}
+
+#message-container {
+    margin: 5% 0 auto 0 ;
+    height: 70vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.flex {
+    display: flex;
+  
+    width: 100%;
+    margin-top: 20px;
+    margin-left:15px;
+    align-items: center;
+
+}
+.back {
+    font-size: 150%;
+    align-items: center;
+}
+.under {
+    margin: auto 0 0 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.input {
+    width: 40vw;
+}
+.me {
+    font-size: 120%;
+}
+.send {
+    font-size: 110%;
+}
+.footer{
+    width:100%;
+    position:absolute;
+    bottom: 0;
+  }
+  
+  .bottom-menu {
+      display: block;
+      position:relative;
+      margin-top:auto;
+      justify-content: center;
+      text-align: center;
+      background-position: bottom;
+  }
+    
+    .bottom-menu a {
+      text-decoration: none;
+      color: #333;
+      padding: 20px;
+      margin:  20px;
+      bottom:0;
+  }
+.pc{
+    display: none;
+  }
+}
+}
+@media screen and (min-width: 1000px){
+    .pc{
+      height: 100vh;
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    }
+    .image{
+        display: none;
+    }
+    .back{
+        display: none;
+    }
+    .white{
+        display: none;
+    }
+    .logo{
+      display: none;
+    }
+    .center{
+      display: none;
+    }
+    .radis{
+      display: none;
+    }
+    .tyui{
+      display: none;
+    }
+    .bottom-menu{
+      display: none;
+    }
+    .pass{
+      display:none;
+    }
+  }
+  @media screen and (max-width: 340px){
+    .pc{
+      height: 100vh;
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .back{
+        display: none;
+    }
+    .logo{
+      display: none;
+    }
+    .center{
+      display: none;
+    }
+    .radis{
+      display: none;
+    }
+    .tyui{
+      display: none;
+    }
+    .bottom-menu{
+      display: none;
+    }
+    .pass{
+      display:none;
+    }
+  }
